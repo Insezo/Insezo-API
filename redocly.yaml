@@ -1,0 +1,7 @@
+specFileName: api.yaml
+apiTitle: Insezo-API
+splitSpec: false
+codeSamples: false
+swaggerUI: true
+travis: false
+oasVersion: 3.0.1

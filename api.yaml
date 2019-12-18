@@ -4,8 +4,9 @@ info:
   description: |
     API endpoints for Insezo partners. (customers,companies and technicians)
 
-      current endpoints
+      Current endpoints
       - Tasks
+      - Me
 
 
       Future endpoints
@@ -28,6 +29,8 @@ servers:
 tags:
   - name: Tasks
     description: Everything about tasks
+  - name: Me
+    description: Information about company account
 paths:
   /tasks/{taskNumber}:
     get:
@@ -128,52 +131,51 @@ paths:
                         type: string
                       salutation:
                         type: integer
-              examples:
-                'production/service':
-                  value:
-                    {
-                      "result": {
-                        "id": "inse21112019-7e9c60",
-                        "orderType": 1,
-                        "salutation": 1,
-                        "firstName": "I.",
-                        "insertion": "",
-                        "lastName": "insezo",
-                        "country": "NL",
-                        "zipcode": "3355pp",
-                        "streetName": "Kattestaart",
-                        "houseNumber": "10",
-                        "houseNumberAddition": "",
-                        "city": "Papendrecht",
-                        "phone": "",
-                        "netcode": "31",
-                        "mobile": "612345678",
-                        "email": "info@insezo.com",
-                        "brand": "Insezo",
-                        "productGroup": "Afzuigkap",
-                        "productNumber": "AF101",
-                        "purchaseDate": "2019-11-01",
-                        "warranty": 2,
-                        "complaint": "",
-                        "serialNumber": "",
-                        "purchasePlace": "",
-                        "language": "NL",
-                        "companyName": "",
-                        "affiliateBrand": "",
-                        "estMaintenanceCode": "",
-                        "realMaintenanceCode": "",
-                        "failureCode": "",
-                        "dispatchCode": "",
-                        "relation": "",
-                        "relationName": "",
-                        "relationEmail": "",
-                        "repairAdvice": "",
-                        "repairCause": "",
-                        "reference": [
-                          ""
-                        ]
-                      }
+              example:
+                value:
+                  {
+                    "result": {
+                      "id": "inse21112019-7e9c60",
+                      "orderType": 1,
+                      "salutation": 1,
+                      "firstName": "I.",
+                      "insertion": "",
+                      "lastName": "insezo",
+                      "country": "NL",
+                      "zipcode": "3355pp",
+                      "streetName": "Kattestaart",
+                      "houseNumber": "10",
+                      "houseNumberAddition": "",
+                      "city": "Papendrecht",
+                      "phone": "",
+                      "netcode": "31",
+                      "mobile": "612345678",
+                      "email": "info@insezo.com",
+                      "brand": "Insezo",
+                      "productGroup": "Afzuigkap",
+                      "productNumber": "AF101",
+                      "purchaseDate": "2019-11-01",
+                      "warranty": 2,
+                      "complaint": "",
+                      "serialNumber": "",
+                      "purchasePlace": "",
+                      "language": "NL",
+                      "companyName": "",
+                      "affiliateBrand": "",
+                      "estMaintenanceCode": "",
+                      "realMaintenanceCode": "",
+                      "failureCode": "",
+                      "dispatchCode": "",
+                      "relation": "",
+                      "relationName": "",
+                      "relationEmail": "",
+                      "repairAdvice": "",
+                      "repairCause": "",
+                      "reference": [
+                        ""
+                      ]
                     }
+                  }
         '400':
           description: Bad request
     put:
@@ -247,9 +249,8 @@ paths:
                   type: array
                   items:
                     type: string
-            examples:
-              'production/service':
-                value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+            example:
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '200':
           description: Ok
@@ -265,15 +266,14 @@ paths:
                         type: string
                   status:
                     type: integer
-              examples:
-                'production/service':
-                  value:
-                    {
-                      "status": 200,
-                      "autofill": {
-                        "productGroup": "Afzuigkap"
-                      }
+              example:
+                value:
+                  {
+                    "status": 200,
+                    "autofill": {
+                      "productGroup": "Afzuigkap"
                     }
+                  }
         '400':
           description: Bad request
         '422':
@@ -330,6 +330,8 @@ paths:
                   type: string
                 phone:
                   type: string
+                productGroup:
+                  type: string
                 productNumber:
                   type: string
                 purchaseDate:
@@ -351,10 +353,8 @@ paths:
                 - streetName
                 - houseNumber
                 - city
-                - productNumber
-            examples:
-              'production/service':
-                value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+            example:
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '201':
           description: Created
@@ -376,22 +376,85 @@ paths:
                         type: number
                   status:
                     type: integer
-              examples:
-                'production/service':
-                  value:
-                    {
-                      "status": 201,
-                      "id": "inse21112019-d5e617",
-                      "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
-                      "autofill": {
-                        "brand": "Insezo",
-                        "productGroup": "Afzuigkap"
-                      }
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "inse21112019-d5e617",
+                    "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
+                    "autofill": {
+                      "brand": "Insezo",
+                      "productGroup": "Afzuigkap"
                     }
+                  }
         '400':
           description: Bad request
         '422':
           description: Unprocessable Entity
+  /me/servicepartners:
+    get:
+      summary: Returns all service partners that are affiliated with a production company
+      description: ""
+      tags:
+        - Me
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+              example:
+                value:
+                  {
+                    "result": [
+                    {"id":1000000000003,
+                     "name": "Insezo Service"
+                    },
+                    {"id":1000000000004,
+                     "name": "Insezo Service You"
+                    }
+                    ]
+                  }
+  /me/partnerbrands:
+    get:
+      summary: Returns all brands that are affiliated with a service company
+      description: ""
+      tags:
+        - Me
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+              example:
+                value:
+                  {
+                    "result": [
+                    {"id":1000000000001,
+                     "name": "Insezo Dishwashers"
+                    },
+                    {"id":1000000000002,
+                     "name": "Insezo Ovens"
+                    }
+                    ]
+                  }
 components:
   securitySchemes:
     bearerAuth:

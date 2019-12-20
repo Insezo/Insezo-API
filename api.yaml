@@ -294,6 +294,10 @@ paths:
             schema:
               type: object
               properties:
+                orderType:
+                  type: string
+                  enum: [service,building]
+                  default: service
                 salutation:
                   type: integer
                   minimum: 1

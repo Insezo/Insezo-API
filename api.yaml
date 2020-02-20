@@ -214,6 +214,9 @@ paths:
                 lastName:
                   type: string
                   maxLength: 35
+                companyName:
+                  type: string
+                  maxLength: 60
                 country:
                   type: string
                   minimum: 2
@@ -254,7 +257,7 @@ paths:
                   items:
                     type: string
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Fulfilcenter B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '200':
           description: Ok
@@ -313,6 +316,9 @@ paths:
                 lastName:
                   type: string
                   maxLength: 35
+                companyName:
+                  type: string
+                  maxLength: 60
                 country:
                   type: string
                   minimum: 2
@@ -362,7 +368,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '201':
           description: Created

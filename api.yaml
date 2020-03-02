@@ -60,7 +60,7 @@ paths:
                     type: object
                     properties:
                       orderType:
-                        type: integer
+                        type: string
                       lastName:
                         type: string
                       country:
@@ -140,7 +140,7 @@ paths:
                   {
                     "result": {
                       "id": "inse21112019-7e9c60",
-                      "orderType": 1,
+                      "orderType": service,
                       "salutation": 1,
                       "firstName": "I.",
                       "insertion": "",
@@ -199,6 +199,9 @@ paths:
             schema:
               type: object
               properties:
+                orderType:
+                  type: string
+                  enum: [service,building,custom]
                 salutation:
                   type: integer
                   minimum: 1
@@ -299,7 +302,7 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [service,building]
+                  enum: [service,building,custom]
                   default: service
                 salutation:
                   type: integer

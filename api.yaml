@@ -26,7 +26,7 @@ info:
     <SecurityDefinitions />
   version: "1.0.1"
   x-logo:
-    url: "https://www.insezo.com/wp-content/uploads/2017/03/Insezo-logo-website.png"
+    url: "https://app.insezo.com/img/main_logo.png"
     altText: "Insezo"
     href: "https://www.insezo.com"
 servers:
@@ -262,6 +262,8 @@ paths:
                   type: array
                   items:
                     type: string
+                    maxLength: 60
+                  maxItems: 4
             example:
               value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Fulfilcenter B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
@@ -366,6 +368,8 @@ paths:
                   type: array
                   items:
                     type: string
+                    maxLength: 60
+                  maxItems: 4
               required:
                 - salutation
                 - country
@@ -492,6 +496,8 @@ paths:
                   type: array
                   items:
                     type: string
+                    maxLength: 60
+                  maxItems: 4
                 affiliateBrand:
                   type: string
                   maxLength: 20

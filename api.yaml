@@ -62,7 +62,11 @@ paths:
                   result:
                     type: object
                     properties:
+                      id:
+                        type: string
                       orderType:
+                        type: string
+                      status:
                         type: string
                       lastName:
                         type: string
@@ -100,8 +104,6 @@ paths:
                         type: string
                       warranty:
                         type: integer
-                      id:
-                        type: string
                       brand:
                         type: string
                       email:
@@ -144,6 +146,7 @@ paths:
                     "result": {
                       "id": "inse21112019-7e9c60",
                       "orderType": service,
+                      "status": task_cancel,
                       "salutation": 1,
                       "firstName": "I.",
                       "insertion": "",

@@ -13,8 +13,6 @@ info:
       Future endpoints
       - Return (RDA)
       - Stock
-      - Parts
-      - Products
 
     # Authentication
 
@@ -34,6 +32,10 @@ servers:
 tags:
   - name: Tasks
     description: Everything about tasks
+  - name: Products
+    description: Everything about products
+  - name: Parts
+    description: Everything about parts
   - name: Returns
     description: Everything about return tasks
   - name: Me
@@ -442,6 +444,371 @@ paths:
       responses:
         '204':
           description: No Content
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /products:
+    get:
+      summary: Returns all products
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            maximum: 1000
+            default: 1000
+          required: false
+          description: The number of items to return
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page with the amount of returned item
+      description: ""
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  products:
+                    properties:
+                      productId:
+                        type: integer
+                      companyId:
+                        type: integer
+                      productNumber:
+                        type: string
+                      productGroup:
+                        type: string
+                      productDescription:
+                        type: string
+              example:
+                value:
+                  {
+                    "result": {
+                      "count":2,
+                      "products":[
+                      {
+                        "productId": 10000350,
+                        "companyId": 7378787652899,
+                        "productNumber": "18/15",
+                        "productGroup": "afzuigkap",
+                        "productDescription": "Twist wandschouw"
+                      },
+                      {
+                        "productId": 10000351,
+                        "companyId": 7378787652899,
+                        "productNumber": "16/15",
+                        "productGroup": "afzuigkap",
+                        "productDescription": "Salsa wandschouw"
+                      }
+                      ]
+                    }
+                  }
+    post:
+      summary: Creates a new product with the supplied data
+      description: ""
+      tags:
+        - Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productNumber:
+                  type: string
+                productDescription:
+                  type: string
+                productDescriptionExtra:
+                  type: string
+                productGroup:
+                  type: string
+                  required: true
+                productNumberExtra:
+                  type: string
+                productManufacturer:
+                  type: string
+                productManufacturerNumber:
+                  type: string
+                allignedBrand:
+                  type: string
+                eanCode:
+                  type: string
+                remark:
+                  type: string
+              required:
+                - productNumber
+                - productDescription
+                - productGroup
+            example:
+              value: {"productNumber":"1010/5","productDescription":"wandschouw","productGroup":"afzuigkap"}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "50001",
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /products/{productId}:
+    put:
+      summary: Update the product with the supplied data
+      description: ""
+      tags:
+        - Products
+      parameters:
+        - name: productId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productDescription:
+                  type: string
+                productDescriptionExtra:
+                  type: string
+                productGroup:
+                  type: string
+                  required: true
+                productNumberExtra:
+                  type: string
+                productManufacturer:
+                  type: string
+                productManufacturerNumber:
+                  type: string
+                allignedBrand:
+                  type: string
+                eanCode:
+                  type: string
+                remark:
+                  type: string
+            example:
+              value: {"productDescription":"wandschouw","productGroup":"afzuigkap"}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "50001",
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /parts:
+    get:
+      summary: Returns all parts
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            maximum: 1000
+            default: 1000
+          required: false
+          description: The number of items to return
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page with the amount of returned items
+      description: ""
+      tags:
+        - Parts
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  parts:
+                    properties:
+                      partId:
+                        type: integer
+                      companyId:
+                        type: integer
+                      partNumber:
+                        type: string
+                      partNumberExtra:
+                        type: string
+                      productDescription:
+                        type: string
+              example:
+                value:
+                  {
+                    "result": {
+                      "count":2,
+                      "parts":[
+                      {
+                        "partId": 32017869,
+                        "companyId": 7378787652899,
+                        "partNumber": "09534000",
+                        "partNumberExtra": "",
+                        "productDescription": "Seitenstein hinten"
+                      },
+                      {
+                        "partId": 20017870,
+                        "companyId": 7378787652899,
+                        "partNumber": "09534100",
+                        "partNumberExtra": "",
+                        "productDescription": "Seitenstein vorne"
+                      }
+                      ]
+                    }
+                  }
+    post:
+      summary: Creates a new part with the supplied data
+      description: ""
+      tags:
+        - Parts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                partNumber:
+                  type: string
+                partNumberExtra:
+                  type: string
+                partDescription:
+                  type: string
+                purchasePrice:
+                  type: number
+                  format: currency
+                salePrice:
+                  type: number
+                  format: currency
+                costPrice:
+                  type: number
+                  format: currency
+                eanCode:
+                  type: string
+              required:
+                - partNumber
+                - partDescription
+            example:
+              value: {"partNumber":"1010/5","partDescription":"wandschouw"}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "50001",
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /parts/{partId}:
+    put:
+      summary: Update the part with the supplied data
+      description: ""
+      tags:
+        - Parts
+      parameters:
+        - name: partId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                partNumberExtra:
+                  type: string
+                partDescription:
+                  type: string
+                purchasePrice:
+                  type: number
+                  format: currency
+                salePrice:
+                  type: number
+                  format: currency
+                costPrice:
+                  type: number
+                  format: currency
+                eanCode:
+                  type: string
+            example:
+              value: {"partDescription":"wandschouw","salePrice":23.20}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "50001",
+                  }
         '400':
           description: Bad request
         '422':

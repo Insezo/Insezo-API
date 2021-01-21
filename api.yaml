@@ -6,12 +6,14 @@ info:
 
       Current endpoints
       - Tasks
+      - Products
+      - Parts
+      - Relations
       - Retour
       - Me
 
 
       Future endpoints
-      - Return (RDA)
       - Stock
 
     # Authentication
@@ -36,6 +38,8 @@ tags:
     description: Everything about products
   - name: Parts
     description: Everything about parts
+  - name: Relations
+    description: Everything about relations
   - name: Returns
     description: Everything about return tasks
   - name: Me
@@ -813,6 +817,201 @@ paths:
           description: Bad request
         '422':
           description: Unprocessable Entity
+  /relations:
+    get:
+      summary: Returns all relations
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            maximum: 1000
+            default: 1000
+          required: false
+          description: The number of items to return
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page with the amount of returned items
+      description: ""
+      tags:
+        - Relations
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  parts:
+                    properties:
+                      id:
+                        type: string
+                      searchName:
+                        type: string
+                      city:
+                        type: string
+                      name:
+                        type: string
+              example:
+                value:
+                  {
+                    "result": [
+                    {
+                      "id": 1,
+                      "searchName": "insezo",
+                      "city": "Papendrecht",
+                      "name": "'t Huys voor Insezo"
+                    },
+                    {
+                      "id": 2,
+                      "searchName": "insez1",
+                      "city": "Papendrecht",
+                      "name": "123 Insezo"
+                    }
+                    ]
+                  }
+    post:
+      summary: Creates a new relation with the supplied data
+      description: ""
+      tags:
+        - Relations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                number:
+                  type: string
+                zipcode:
+                  type: string
+                houseNumber:
+                  type: string
+                streetName:
+                  type: string
+                city:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+                remark:
+                  type: string
+              required:
+                - name
+                - number
+            example:
+              value: {"name":"Insezo","number":"911"}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+              example:
+                value:
+                  {
+                    "status": 201,
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /relations/{relationId}:
+    get:
+      summary: Returns relation from id
+      description: ""
+      tags:
+        - Relations
+      parameters:
+        - name: relationId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  searchName:
+                    type: string
+                  city:
+                    type: string
+                  name:
+                    type: string
+              example:
+                value:
+                  {
+                    "result":
+                    {
+                      "id": 1,
+                      "searchName": "insezo",
+                      "city": "Papendrecht",
+                      "name": "'t Huys voor Insezo"
+                    }
+                  }
+    put:
+      summary: Updates the relation with the supplied data
+      description: ""
+      tags:
+        - Relations
+      parameters:
+        - name: relationId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                number:
+                  type: string
+                zipcode:
+                  type: string
+                houseNumber:
+                  type: string
+                streetName:
+                  type: string
+                city:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+                remark:
+                  type: string
+            example:
+              value: {"zipcode":"3355pp","email":"info@insezo.com"}
+        responses:
+          '204':
+          description: No Content
+          '400':
+            description: Bad request
+          '422':
+            description: Unprocessable Entity
   /returns:
     post:
       summary: Creates a new return task with the supplied data

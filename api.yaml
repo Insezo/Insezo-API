@@ -9,6 +9,7 @@ info:
       - Products
       - Parts
       - Relations
+      - Fulfilment
       - Retour
       - Me
 
@@ -42,6 +43,8 @@ tags:
     description: Everything about relations
   - name: Returns
     description: Everything about return tasks
+  - name: Fulfilment
+    description: Everything about fulfilment
   - name: Me
     description: Information about company account
 paths:
@@ -1134,6 +1137,128 @@ paths:
                     "status": 201,
                     "id": "rsinse21112019-5ff1a5",
                     "redirectUrl": "https:\/\/app.insezo.com\/rda\/overview?p=rsinse21112019-5ff1a5",
+                    "autofill": {
+                      "brand": "Insezo",
+                      "productGroup": "Afzuigkap"
+                    }
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /fulfilment:
+    post:
+      summary: Creates a new fulfilment task with the supplied data
+      description: ""
+      tags:
+        - Fulfilment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salutation:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                firstName:
+                  type: string
+                  maxLength: 35
+                insertion:
+                  type: string
+                  maxLength: 10
+                lastName:
+                  type: string
+                  maxLength: 35
+                companyName:
+                  type: string
+                  maxLength: 60
+                country:
+                  type: string
+                  minimum: 2
+                  maximum: 2
+                city:
+                  type: string
+                  maxLength: 40
+                zipcode:
+                  type: string
+                  maxLength: 10
+                streetName:
+                  type: string
+                  maxLength: 60
+                houseNumber:
+                  type: string
+                  maxLength: 10
+                email:
+                  type: string
+                  maxLength: 60
+                mobile:
+                  type: string
+                netcode:
+                  type: string
+                phone:
+                  type: string
+                productGroup:
+                  type: string
+                productNumber:
+                  type: string
+                purchaseDate:
+                  type: string
+                  format: date
+                purchasePlace:
+                  type: string
+                  maxLength: 40
+                language:
+                  type: string
+                remark:
+                  type: string
+                  maxLength: 500
+                reference:
+                  type: array
+                  items:
+                    type: string
+                  maxLength: 60
+                  maxItems: 4
+                affiliateBrand:
+                  type: string
+                  maxLength: 20
+              required:
+                - salutation
+                - country
+                - zipcode
+                - streetName
+                - houseNumber
+                - city
+            example:
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","remark":"Box is damaged","reference":["one","two"]}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  redirectUrl:
+                    type: string
+                  id:
+                    type: string
+                  autofill:
+                    type: object
+                    properties:
+                      productGroup:
+                        type: string
+                      brand:
+                        type: number
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "rsinse21112019-5ff1a5",
+                    "redirectUrl": "https:\/\/app.insezo.com\/fulfilment\/overview?p=finse21112019-5ff1a5",
                     "autofill": {
                       "brand": "Insezo",
                       "productGroup": "Afzuigkap"

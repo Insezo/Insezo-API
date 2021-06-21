@@ -307,7 +307,7 @@ paths:
           description: Unprocessable Entity
   /tasks:
     post:
-      summary: Creates a new task with the supplied data
+      summary: Creates a new task with predefined product data
       description: ""
       tags:
         - Tasks
@@ -364,6 +364,8 @@ paths:
                   type: string
                 phone:
                   type: string
+                brand:
+                  type : integer
                 productGroup:
                   type: string
                 productNumber:
@@ -422,6 +424,122 @@ paths:
                       "brand": "Insezo",
                       "productGroup": "Afzuigkap"
                     }
+                  }
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /tasks/free:
+    post:
+      summary: Creates a new task with free field data
+      description: "Only usable for Insezo technician accounts"
+      tags:
+        - Tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderType:
+                  type: string
+                  enum: [service,building,custom,basic]
+                  default: service
+                salutation:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                language:
+                  type: string
+                firstName:
+                  type: string
+                  maxLength: 35
+                insertion:
+                  type: string
+                  maxLength: 10
+                lastName:
+                  type: string
+                  maxLength: 35
+                companyName:
+                  type: string
+                  maxLength: 60
+                country:
+                  type: string
+                  minimum: 2
+                  maximum: 2
+                city:
+                  type: string
+                  maxLength: 40
+                zipcode:
+                  type: string
+                  maxLength: 10
+                streetName:
+                  type: string
+                  maxLength: 60
+                houseNumber:
+                  type: string
+                  maxLength: 10
+                email:
+                  type: string
+                  maxLength: 60
+                mobile:
+                  type: string
+                netcode:
+                  type: string
+                phone:
+                  type: string
+                brand:
+                  type: string
+                  maxLength: 40
+                group:
+                  type: string
+                  maxLength: 40
+                number:
+                  type: string
+                  maxLength: 40
+                purchaseDate:
+                  type: string
+                  format: date
+                complaint:
+                  type: string
+                  maxLength: 1500
+                warranty:
+                  type: integer
+                reference:
+                  type: array
+                  items:
+                    type: string
+                  maxLength: 60
+                  maxItems: 4
+              required:
+                - salutation
+                - country
+                - zipcode
+                - streetName
+                - houseNumber
+                - city
+            example:
+              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","brand":"Insezo","number":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  redirectUrl:
+                    type: string
+                  id:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "inse21112019-d5e617",
+                    "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
                   }
         '400':
           description: Bad request
@@ -964,12 +1082,12 @@ paths:
                 value:
                   {
                     "result":
-                    {
-                      "id": 1,
-                      "searchName": "insezo",
-                      "city": "Papendrecht",
-                      "name": "'t Huys voor Insezo"
-                    }
+                      {
+                        "id": 1,
+                        "searchName": "insezo",
+                        "city": "Papendrecht",
+                        "name": "'t Huys voor Insezo"
+                      }
                   }
     put:
       summary: Updates the relation with the supplied data

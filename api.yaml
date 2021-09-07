@@ -11,6 +11,7 @@ info:
       - Relations
       - Fulfilment
       - Retour
+      - Registration - Complaints
       - Me
 
 
@@ -45,6 +46,8 @@ tags:
     description: Everything about return tasks
   - name: Fulfilment
     description: Everything about fulfilment
+  - name: Registration - Complaints
+    description: Everything about complaint registrations
   - name: Me
     description: Information about company account
 paths:
@@ -221,6 +224,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
+                  description : mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -256,10 +260,12 @@ paths:
                   maxLength: 60
                 mobile:
                   type: string
+                  maxLength: 20
                 netcode:
                   type: string
                 phone:
                   type: string
+                  maxLength: 20
                 productNumber:
                   type: string
                 purchaseDate:
@@ -328,6 +334,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
+                  description : mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -363,10 +370,12 @@ paths:
                   maxLength: 60
                 mobile:
                   type: string
+                  maxLength: 20
                 netcode:
                   type: string
                 phone:
                   type: string
+                  maxLength: 20
                 brand:
                   type : integer
                 productGroup:
@@ -455,6 +464,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
+                  description : mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -490,10 +500,12 @@ paths:
                   maxLength: 60
                 mobile:
                   type: string
+                  maxLength: 20
                 netcode:
                   type: string
                 phone:
                   type: string
+                  maxLength: 20
                 brand:
                   type: string
                   maxLength: 40
@@ -1161,6 +1173,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
+                  description : mr/mrs, mr, mrs, company
                 firstName:
                   type: string
                   maxLength: 35
@@ -1194,10 +1207,12 @@ paths:
                   maxLength: 60
                 mobile:
                   type: string
+                  maxLength: 20
                 netcode:
                   type: string
                 phone:
                   type: string
+                  maxLength: 20
                 productGroup:
                   type: string
                 productNumber:
@@ -1289,6 +1304,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
+                  description : mr/mrs, mr, mrs, company
                 firstName:
                   type: string
                   maxLength: 35
@@ -1395,6 +1411,228 @@ paths:
           description: Bad request
         '422':
           description: Unprocessable Entity
+  /registrations/complaints/{complaintId}:
+    get:
+      summary: Returns information about the complaint
+      description: ""
+      tags:
+        - Registration - Complaints
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      lastName:
+                        type: string
+                      country:
+                        type: string
+                      purchaseDate:
+                        type: string
+                      city:
+                        type: string
+                      purchasePlace:
+                        type: string
+                      companyName:
+                        type: string
+                      houseNumber:
+                        type: string
+                      language:
+                        type: string
+                      affiliateBrand:
+                        type: string
+                      streetName:
+                        type: string
+                      netcode:
+                        type: string
+                      brand:
+                        type: string
+                      email:
+                        type: string
+                      serialNumber:
+                        type: string
+                      mobile:
+                        type: string
+                      number:
+                        type: string
+                      houseNumberAddition:
+                        type: string
+                      zipcode:
+                        type: string
+                      firstName:
+                        type: string
+                      phone:
+                        type: string
+                      group:
+                        type: string
+                      complaint:
+                        type: string
+                      remark:
+                        type: string
+                      insertion:
+                        type: string
+                      salutation:
+                        type: integer
+              example:
+                value:
+                  {
+                    "result": {
+                      "id": "cinse21112019-gxx123",
+                      "status": task_cancel,
+                      "salutation": 1,
+                      "firstName": "I.",
+                      "insertion": "",
+                      "lastName": "insezo",
+                      "country": "NL",
+                      "zipcode": "3355pp",
+                      "streetName": "Kattestaart",
+                      "houseNumber": "10",
+                      "houseNumberAddition": "",
+                      "city": "Papendrecht",
+                      "phone": "",
+                      "netcode": "31",
+                      "mobile": "612345678",
+                      "email": "info@insezo.com",
+                      "brand": "Insezo",
+                      "group": "Afzuigkap",
+                      "number": "AF101",
+                      "purchaseDate": "2019-11-01",
+                      "complaint": "",
+                      "purchasePlace": "",
+                      "language": "NL",
+                      "companyName": "",
+                      "affiliateBrand": "",
+                    }
+                  }
+        '400':
+          description: Bad request
+    post:
+      summary: Creates a new complaint registration with the supplied data
+      description: ""
+      tags:
+        - Registration - Complaints
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salutation:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                  description: mr/mrs, mr, mrs, company
+                firstName:
+                  type: string
+                  maxLength: 35
+                insertion:
+                  type: string
+                  maxLength: 10
+                lastName:
+                  type: string
+                  maxLength: 35
+                companyName:
+                  type: string
+                  maxLength: 60
+                country:
+                  type: string
+                  minimum: 2
+                  maximum: 2
+                city:
+                  type: string
+                  maxLength: 40
+                zipcode:
+                  type: string
+                  maxLength: 10
+                streetName:
+                  type: string
+                  maxLength: 60
+                houseNumber:
+                  type: string
+                  maxLength: 10
+                email:
+                  type: string
+                  maxLength: 60
+                mobile:
+                  type: string
+                  maxLength: 20
+                netcode:
+                  type: string
+                phone:
+                  type: string
+                  maxLength: 20
+                brand:
+                  type: string
+                  description: call /me api for partnersbrand ID's
+                group:
+                  type: string
+                number:
+                  type: string
+                purchaseDate:
+                  type: string
+                  format: date
+                purchasePlace:
+                  type: string
+                  maxLength: 40
+                remark:
+                  type: string
+                  maxLength: 500
+                complaint:
+                  type: string
+                  maxLength: 1500
+                language:
+                  type: string
+                affiliateBrand:
+                  type: string
+                  maxLength: 20
+              required:
+                - salutation
+                - country
+                - zipcode
+                - brand
+                - streetName
+                - houseNumber
+                - city
+            example:
+              value: { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","number": "AF101","remark": "Box is damaged" }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  redirectUrl:
+                    type: string
+                  id:
+                    type: string
+                  autofill:
+                    type: object
+                    properties:
+                      productGroup:
+                        type: string
+                      brand:
+                        type: number
+                  status:
+                    type: integer
+              example:
+                value:
+                  {
+                    "status": 201,
+                    "id": "cinse21112019-5ff1a5",
+                    "redirectUrl": "https:\/\/app.insezo.com\/complaints\/modify?p=finse21112019-5ff1a5",
+                    "autofill": {
+                      "brand": "Insezo",
+                    }
+                  }
   /me/servicepartners:
     get:
       summary: Returns all service partners that are affiliated with a production company

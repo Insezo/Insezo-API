@@ -274,6 +274,9 @@ paths:
                 complaint:
                   type: string
                   maxLength: 1500
+                repairAdvice:
+                  type: string
+                  maxLength: 500
                 relation:
                   type: string
                   format: search number
@@ -388,6 +391,9 @@ paths:
                 complaint:
                   type: string
                   maxLength: 1500
+                repairAdvice:
+                  type: string
+                  maxLength: 500
                 warranty:
                   type: integer
                 relation:
@@ -521,6 +527,9 @@ paths:
                 complaint:
                   type: string
                   maxLength: 1500
+                repairAdvice:
+                  type: string
+                  maxLength: 500
                 warranty:
                   type: integer
                 relation:
@@ -587,6 +596,34 @@ paths:
                 phase:
                   type: string
                   enum: [wait_for_customer,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted]
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
+  /tasks/{taskNumber}/document:
+    post:
+      summary: Uploads a document to the task
+      description: ""
+      tags:
+        - Tasks
+      parameters:
+        - name: taskNumber
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
       responses:
         '204':
           description: No Content
@@ -1147,13 +1184,13 @@ paths:
                   type: string
             example:
               value: {"zipcode":"3355pp","email":"info@insezo.com"}
-        responses:
-          '204':
+      responses:
+        '204':
           description: No Content
-          '400':
-            description: Bad request
-          '422':
-            description: Unprocessable Entity
+        '400':
+          description: Bad request
+        '422':
+          description: Unprocessable Entity
   /returns:
     post:
       summary: Creates a new return task with the supplied data

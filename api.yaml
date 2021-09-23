@@ -4,19 +4,11 @@ info:
   description: |
     API endpoints for Insezo partners. (customers,companies and technicians)
 
-      Current endpoints
-      - Tasks
-      - Products
-      - Parts
-      - Relations
-      - Fulfilment
-      - Retour
-      - Registration - Complaints
-      - Me
+    # Url
 
+    Base url production: https://rest.insezo.com
 
-      Future endpoints
-      - Stock
+    Base url development: https://rest.insezodevelopment.com
 
     # Authentication
 
@@ -32,7 +24,8 @@ info:
     altText: "Insezo"
     href: "https://www.insezo.com"
 servers:
-  - url: 'https://rest.insezo.com'
+  - url: https://rest.insezo.com
+    description: Production server (uses live data)
 tags:
   - name: Tasks
     description: Everything about tasks

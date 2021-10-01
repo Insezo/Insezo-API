@@ -15,7 +15,7 @@ info:
     Insezo currently offers one form of authentication:
       - API Key - You can find this when logged in on app.insezo.com in the menu under "company settings"
 
-    Just add a Authorization header with value "Bearer {{YOUR_KEY}}"
+    Just add a Authorization header with value "Bearer {YOUR_KEY}"
 
     <SecurityDefinitions />
   version: "1.0.1"
@@ -146,8 +146,6 @@ paths:
                       salutation:
                         type: integer
               example:
-                value:
-                  {
                     "result": {
                       "id": "inse21112019-7e9c60",
                       "orderType": service,
@@ -190,7 +188,6 @@ paths:
                         ""
                       ]
                     }
-                  }
         '400':
           description: Bad request
     put:
@@ -282,7 +279,7 @@ paths:
                   maxLength: 60
                   maxItems: 4
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Fulfilcenter B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Fulfilcenter B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '200':
           description: Ok
@@ -299,13 +296,12 @@ paths:
                   status:
                     type: integer
               example:
-                value:
-                  {
-                    "status": 200,
-                    "autofill": {
-                      "productGroup": "Afzuigkap"
-                    }
+                {
+                  "status": 200,
+                  "autofill": {
+                    "productGroup": "Afzuigkap"
                   }
+                }
         '400':
           description: Bad request
         '422':
@@ -406,7 +402,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '201':
           description: Created
@@ -429,7 +425,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "inse21112019-d5e617",
@@ -542,7 +537,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","brand":"Insezo","number":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","brand":"Insezo","number":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '201':
           description: Created
@@ -558,7 +553,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "inse21112019-d5e617",
@@ -668,7 +662,6 @@ paths:
                       productDescription:
                         type: string
               example:
-                value:
                   {
                     "result": {
                       "count":2,
@@ -727,7 +720,7 @@ paths:
                 - productDescription
                 - productGroup
             example:
-              value: {"productNumber":"1010/5","productDescription":"wandschouw","productGroup":"afzuigkap"}
+              {"productNumber":"1010/5","productDescription":"wandschouw","productGroup":"afzuigkap"}
       responses:
         '201':
           description: Created
@@ -741,7 +734,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "50001",
@@ -788,7 +780,7 @@ paths:
                 remark:
                   type: string
             example:
-              value: {"productDescription":"wandschouw","productGroup":"afzuigkap"}
+              {"productDescription":"wandschouw","productGroup":"afzuigkap"}
       responses:
         '201':
           description: Created
@@ -802,7 +794,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "50001",
@@ -855,7 +846,6 @@ paths:
                       productDescription:
                         type: string
               example:
-                value:
                   {
                     "result": {
                       "count":2,
@@ -909,7 +899,7 @@ paths:
                 - partNumber
                 - partDescription
             example:
-              value: {"partNumber":"1010/5","partDescription":"wandschouw"}
+              {"partNumber":"1010/5","partDescription":"wandschouw"}
       responses:
         '201':
           description: Created
@@ -923,7 +913,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "50001",
@@ -966,7 +955,7 @@ paths:
                 eanCode:
                   type: string
             example:
-              value: {"partDescription":"wandschouw","salePrice":23.20}
+              {"partDescription":"wandschouw","salePrice":23.20}
       responses:
         '201':
           description: Created
@@ -980,7 +969,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "50001",
@@ -1031,7 +1019,6 @@ paths:
                       name:
                         type: string
               example:
-                value:
                   {
                     "result": [
                     {
@@ -1081,7 +1068,7 @@ paths:
                 - name
                 - number
             example:
-              value: {"name":"Insezo","number":"911"}
+              {"name":"Insezo","number":"911"}
       responses:
         '201':
           description: Created
@@ -1093,7 +1080,6 @@ paths:
                   status:
                     type: string
               example:
-                value:
                   {
                     "status": 201,
                   }
@@ -1130,7 +1116,6 @@ paths:
                   name:
                     type: string
               example:
-                value:
                   {
                     "result":
                       {
@@ -1176,7 +1161,7 @@ paths:
                 remark:
                   type: string
             example:
-              value: {"zipcode":"3355pp","email":"info@insezo.com"}
+              {"zipcode":"3355pp","email":"info@insezo.com"}
       responses:
         '204':
           description: No Content
@@ -1281,7 +1266,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
       responses:
         '201':
           description: Created
@@ -1304,7 +1289,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "rsinse21112019-5ff1a5",
@@ -1404,7 +1388,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","remark":"Box is damaged","reference":["one","two"]}
+              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","remark":"Box is damaged","reference":["one","two"]}
       responses:
         '201':
           description: Created
@@ -1427,7 +1411,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "rsinse21112019-5ff1a5",
@@ -1511,7 +1494,6 @@ paths:
                       salutation:
                         type: integer
               example:
-                value:
                   {
                     "result": {
                       "id": "cinse21112019-gxx123",
@@ -1631,7 +1613,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              value: { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","number": "AF101","remark": "Box is damaged" }
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","number": "AF101","remark": "Box is damaged" }
       responses:
         '200':
           description: Created
@@ -1654,7 +1636,6 @@ paths:
                   status:
                     type: integer
               example:
-                value:
                   {
                     "status": 201,
                     "id": "cinse21112019-5ff1a5",
@@ -1684,7 +1665,6 @@ paths:
                     name:
                       type: string
               example:
-                value:
                   {
                     "result": [
                     {"id":1000000000003,
@@ -1716,7 +1696,6 @@ paths:
                     name:
                       type: string
               example:
-                value:
                   {
                     "result": [
                     {"id":1000000000001,

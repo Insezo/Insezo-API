@@ -146,48 +146,48 @@ paths:
                       salutation:
                         type: integer
               example:
-                    "result": {
-                      "id": "inse21112019-7e9c60",
-                      "orderType": service,
-                      "status": task_cancel,
-                      "salutation": 1,
-                      "firstName": "I.",
-                      "insertion": "",
-                      "lastName": "insezo",
-                      "country": "NL",
-                      "zipcode": "3355pp",
-                      "streetName": "Kattestaart",
-                      "houseNumber": "10",
-                      "houseNumberAddition": "",
-                      "city": "Papendrecht",
-                      "phone": "",
-                      "netcode": "31",
-                      "mobile": "612345678",
-                      "email": "info@insezo.com",
-                      "brand": "Insezo",
-                      "productGroup": "Afzuigkap",
-                      "productNumber": "AF101",
-                      "purchaseDate": "2019-11-01",
-                      "warranty": 2,
-                      "complaint": "",
-                      "serialNumber": "",
-                      "purchasePlace": "",
-                      "language": "NL",
-                      "companyName": "",
-                      "affiliateBrand": "",
-                      "estMaintenanceCode": "",
-                      "realMaintenanceCode": "",
-                      "failureCode": "",
-                      "dispatchCode": "",
-                      "relation": "",
-                      "relationName": "",
-                      "relationEmail": "",
-                      "repairAdvice": "",
-                      "repairCause": "",
-                      "reference": [
-                        ""
-                      ]
-                    }
+                "result": {
+                  "id": "inse21112019-7e9c60",
+                  "orderType": service,
+                  "status": task_cancel,
+                  "salutation": 1,
+                  "firstName": "I.",
+                  "insertion": "",
+                  "lastName": "insezo",
+                  "country": "NL",
+                  "zipcode": "3355pp",
+                  "streetName": "Kattestaart",
+                  "houseNumber": "10",
+                  "houseNumberAddition": "",
+                  "city": "Papendrecht",
+                  "phone": "",
+                  "netcode": "31",
+                  "mobile": "612345678",
+                  "email": "info@insezo.com",
+                  "brand": "Insezo",
+                  "productGroup": "Afzuigkap",
+                  "productNumber": "AF101",
+                  "purchaseDate": "2019-11-01",
+                  "warranty": 2,
+                  "complaint": "",
+                  "serialNumber": "",
+                  "purchasePlace": "",
+                  "language": "NL",
+                  "companyName": "",
+                  "affiliateBrand": "",
+                  "estMaintenanceCode": "",
+                  "realMaintenanceCode": "",
+                  "failureCode": "",
+                  "dispatchCode": "",
+                  "relation": "",
+                  "relationName": "",
+                  "relationEmail": "",
+                  "repairAdvice": "",
+                  "repairCause": "",
+                  "reference": [
+                      ""
+                  ]
+                }
         '400':
           description: Bad request
     put:
@@ -209,12 +209,12 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [service,building,installation,custom]
+                  enum: [ service,building,installation,custom ]
                 salutation:
                   type: integer
                   minimum: 1
                   maximum: 4
-                  description : mr/mrs, mr, mrs, company
+                  description: mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -279,7 +279,7 @@ paths:
                   maxLength: 60
                   maxItems: 4
             example:
-              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Fulfilcenter B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Fulfilcenter B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
       responses:
         '200':
           description: Ok
@@ -320,13 +320,13 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [service,building,installation,custom]
+                  enum: [ service,building,installation,custom ]
                   default: service
                 salutation:
                   type: integer
                   minimum: 1
                   maximum: 4
-                  description : mr/mrs, mr, mrs, company
+                  description: mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -369,10 +369,10 @@ paths:
                   type: string
                   maxLength: 20
                 contractor:
-                  type : integer
-                  description : consult "/me/servicepartners" endpoint for allowed contractors
+                  type: integer
+                  description: consult "/me/servicepartners" endpoint for allowed contractors
                 brand:
-                  type : integer
+                  type: integer
                 productGroup:
                   type: string
                 productNumber:
@@ -405,7 +405,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
       responses:
         '201':
           description: Created
@@ -428,15 +428,15 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "inse21112019-d5e617",
-                    "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
-                    "autofill": {
-                      "brand": "Insezo",
-                      "productGroup": "Afzuigkap"
-                    }
+                {
+                  "status": 201,
+                  "id": "inse21112019-d5e617",
+                  "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
+                  "autofill": {
+                    "brand": "Insezo",
+                    "productGroup": "Afzuigkap"
                   }
+                }
         '400':
           description: Bad request
         '422':
@@ -455,13 +455,13 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [service,building,custom,installation,basic]
+                  enum: [ service,building,custom,installation,basic ]
                   default: service
                 salutation:
                   type: integer
                   minimum: 1
                   maximum: 4
-                  description : mr/mrs, mr, mrs, company
+                  description: mr/mrs, mr, mrs, company
                 language:
                   type: string
                 firstName:
@@ -540,7 +540,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","brand":"Insezo","number":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","brand": "Insezo","number": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
       responses:
         '201':
           description: Created
@@ -556,11 +556,11 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "inse21112019-d5e617",
-                    "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
-                  }
+                {
+                  "status": 201,
+                  "id": "inse21112019-d5e617",
+                  "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
+                }
         '400':
           description: Bad request
         '422':
@@ -585,7 +585,7 @@ paths:
               properties:
                 phase:
                   type: string
-                  enum: [wait_for_customer,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted]
+                  enum: [ wait_for_customer,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted ]
       responses:
         '204':
           description: No Content
@@ -665,10 +665,10 @@ paths:
                       productDescription:
                         type: string
               example:
-                  {
-                    "result": {
-                      "count":2,
-                      "products":[
+                {
+                  "result": {
+                    "count": 2,
+                    "products": [
                       {
                         "productId": 10000350,
                         "companyId": 7378787652899,
@@ -683,9 +683,9 @@ paths:
                         "productGroup": "afzuigkap",
                         "productDescription": "Salsa wandschouw"
                       }
-                      ]
-                    }
+                    ]
                   }
+                }
     post:
       summary: Creates a new product with the supplied data
       description: ""
@@ -723,7 +723,7 @@ paths:
                 - productDescription
                 - productGroup
             example:
-              {"productNumber":"1010/5","productDescription":"wandschouw","productGroup":"afzuigkap"}
+              { "productNumber": "1010/5","productDescription": "wandschouw","productGroup": "afzuigkap" }
       responses:
         '201':
           description: Created
@@ -737,10 +737,10 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "50001",
-                  }
+                {
+                  "status": 201,
+                  "id": "50001",
+                }
         '400':
           description: Bad request
         '422':
@@ -783,7 +783,7 @@ paths:
                 remark:
                   type: string
             example:
-              {"productDescription":"wandschouw","productGroup":"afzuigkap"}
+              { "productDescription": "wandschouw","productGroup": "afzuigkap" }
       responses:
         '201':
           description: Created
@@ -797,10 +797,10 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "50001",
-                  }
+                {
+                  "status": 201,
+                  "id": "50001",
+                }
         '400':
           description: Bad request
         '422':
@@ -849,10 +849,10 @@ paths:
                       productDescription:
                         type: string
               example:
-                  {
-                    "result": {
-                      "count":2,
-                      "parts":[
+                {
+                  "result": {
+                    "count": 2,
+                    "parts": [
                       {
                         "partId": 32017869,
                         "companyId": 7378787652899,
@@ -867,9 +867,9 @@ paths:
                         "partNumberExtra": "",
                         "productDescription": "Seitenstein vorne"
                       }
-                      ]
-                    }
+                    ]
                   }
+                }
     post:
       summary: Creates a new part with the supplied data
       description: ""
@@ -902,7 +902,7 @@ paths:
                 - partNumber
                 - partDescription
             example:
-              {"partNumber":"1010/5","partDescription":"wandschouw"}
+              { "partNumber": "1010/5","partDescription": "wandschouw" }
       responses:
         '201':
           description: Created
@@ -916,10 +916,10 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "50001",
-                  }
+                {
+                  "status": 201,
+                  "id": "50001",
+                }
         '400':
           description: Bad request
         '422':
@@ -958,7 +958,7 @@ paths:
                 eanCode:
                   type: string
             example:
-              {"partDescription":"wandschouw","salePrice":23.20}
+              { "partDescription": "wandschouw","salePrice": 23.20 }
       responses:
         '201':
           description: Created
@@ -972,10 +972,10 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "50001",
-                  }
+                {
+                  "status": 201,
+                  "id": "50001",
+                }
         '400':
           description: Bad request
         '422':
@@ -985,19 +985,11 @@ paths:
       summary: Returns all relations
       parameters:
         - in: query
-          name: limit
-          schema:
-            type: integer
-            maximum: 1000
-            default: 1000
-          required: false
-          description: The number of items to return
-        - in: query
-          name: page
+          name: start
           schema:
             type: integer
           required: false
-          description: Page with the amount of returned items
+          description: Start from this number and return the next 50 items
       description: ""
       tags:
         - Relations
@@ -1011,33 +1003,60 @@ paths:
                 properties:
                   count:
                     type: integer
-                  parts:
+                  result:
+                    type: array
                     properties:
                       id:
                         type: string
+                      name:
+                        type: string
+                      number:
+                        type: string
                       searchName:
+                        type: string
+                      country:
+                        type: string
+                      zipcode:
+                        type: string
+                      streetName:
+                        type: string
+                      houseNumber:
                         type: string
                       city:
                         type: string
-                      name:
+                      phone:
+                        type: string
+                      email:
+                        type: string
+                      language:
                         type: string
               example:
-                  {
-                    "result": [
+                {
+                  "result": [
                     {
                       "id": 1,
+                      "name": "'t Huys voor Insezo",
+                      "number": "123",
                       "searchName": "insezo",
+                      "country": "nl",
+                      "zipcode": "3355pp",
+                      "streetName": "Kattestaart",
+                      "houseNumber": "10",
                       "city": "Papendrecht",
-                      "name": "'t Huys voor Insezo"
                     },
                     {
                       "id": 2,
+                      "name": "123 Insezo",
+                      "number": "124",
                       "searchName": "insez1",
+                      "country": "nl",
+                      "zipcode": "3355pp",
+                      "streetName": "Kattestaart",
+                      "houseNumber": "10",
                       "city": "Papendrecht",
-                      "name": "123 Insezo"
                     }
-                    ]
-                  }
+                  ]
+                }
     post:
       summary: Creates a new relation with the supplied data
       description: ""
@@ -1053,6 +1072,12 @@ paths:
                   type: string
                 number:
                   type: string
+                language:
+                  type: string
+                  description: The 2 digit country code (nl, fr)
+                country:
+                  type: string
+                  description: The 2 digit country code (NL, FR)
                 zipcode:
                   type: string
                 houseNumber:
@@ -1071,7 +1096,7 @@ paths:
                 - name
                 - number
             example:
-              {"name":"Insezo","number":"911"}
+              { "name": "Insezo","number": "911" }
       responses:
         '201':
           description: Created
@@ -1083,9 +1108,9 @@ paths:
                   status:
                     type: string
               example:
-                  {
-                    "status": 201,
-                  }
+                {
+                  "status": 201,
+                }
         '400':
           description: Bad request
         '422':
@@ -1119,15 +1144,20 @@ paths:
                   name:
                     type: string
               example:
-                  {
-                    "result":
-                      {
-                        "id": 1,
-                        "searchName": "insezo",
-                        "city": "Papendrecht",
-                        "name": "'t Huys voor Insezo"
-                      }
-                  }
+                {
+                  "result":
+                    {
+                      "id": 1,
+                      "name": "'t Huys voor Insezo",
+                      "number": "123",
+                      "searchName": "insezo",
+                      "country": "nl",
+                      "zipcode": "3355pp",
+                      "streetName": "Kattestaart",
+                      "houseNumber": "10",
+                      "city": "Papendrecht",
+                    }
+                }
     put:
       summary: Updates the relation with the supplied data
       description: ""
@@ -1149,6 +1179,12 @@ paths:
                   type: string
                 number:
                   type: string
+                language:
+                  type: string
+                  description: The 2 digit country code (nl, fr)
+                country:
+                  type: string
+                  description: The 2 digit country code (NL, FR)
                 zipcode:
                   type: string
                 houseNumber:
@@ -1164,7 +1200,7 @@ paths:
                 remark:
                   type: string
             example:
-              {"zipcode":"3355pp","email":"info@insezo.com"}
+              { "zipcode": "3355pp","email": "info@insezo.com" }
       responses:
         '204':
           description: No Content
@@ -1186,12 +1222,12 @@ paths:
               properties:
                 returnType:
                   type: string
-                  enum: [sda,mda,sdar,mdar,sdad,mdad]
+                  enum: [ sda,mda,sdar,mdar,sdad,mdad ]
                 salutation:
                   type: integer
                   minimum: 1
                   maximum: 4
-                  description : mr/mrs, mr, mrs, company
+                  description: mr/mrs, mr, mrs, company
                 firstName:
                   type: string
                   maxLength: 35
@@ -1269,7 +1305,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","warranty":3,"complaint":"accio","reference":["one","two"]}
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
       responses:
         '201':
           description: Created
@@ -1292,15 +1328,15 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "rsinse21112019-5ff1a5",
-                    "redirectUrl": "https:\/\/app.insezo.com\/rda\/overview?p=rsinse21112019-5ff1a5",
-                    "autofill": {
-                      "brand": "Insezo",
-                      "productGroup": "Afzuigkap"
-                    }
+                {
+                  "status": 201,
+                  "id": "rsinse21112019-5ff1a5",
+                  "redirectUrl": "https:\/\/app.insezo.com\/rda\/overview?p=rsinse21112019-5ff1a5",
+                  "autofill": {
+                    "brand": "Insezo",
+                    "productGroup": "Afzuigkap"
                   }
+                }
         '400':
           description: Bad request
         '422':
@@ -1321,7 +1357,7 @@ paths:
                   type: integer
                   minimum: 1
                   maximum: 4
-                  description : mr/mrs, mr, mrs, company
+                  description: mr/mrs, mr, mrs, company
                 firstName:
                   type: string
                   maxLength: 35
@@ -1391,7 +1427,7 @@ paths:
                 - houseNumber
                 - city
             example:
-              {"salutation": 2,"firstName": "roel","insertion":"","lastName":"aarnoudse","companyName":"Insezo B.V.","country":"nl","language":"nl","zipcode":"3355pp","houseNumber":"10","streetName":"Kattestaart","city":"papendrecht","phone":"0786154678","netcode":"31","mobile":"612345678","email":"info@insezo.com","productNumber":"AF101","purchaseDate":"1-1-2013","remark":"Box is damaged","reference":["one","two"]}
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","remark": "Box is damaged","reference": [ "one","two" ] }
       responses:
         '201':
           description: Created
@@ -1414,15 +1450,15 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "rsinse21112019-5ff1a5",
-                    "redirectUrl": "https:\/\/app.insezo.com\/fulfilment\/overview?p=finse21112019-5ff1a5",
-                    "autofill": {
-                      "brand": "Insezo",
-                      "productGroup": "Afzuigkap"
-                    }
+                {
+                  "status": 201,
+                  "id": "rsinse21112019-5ff1a5",
+                  "redirectUrl": "https:\/\/app.insezo.com\/fulfilment\/overview?p=finse21112019-5ff1a5",
+                  "autofill": {
+                    "brand": "Insezo",
+                    "productGroup": "Afzuigkap"
                   }
+                }
         '400':
           description: Bad request
         '422':
@@ -1497,35 +1533,35 @@ paths:
                       salutation:
                         type: integer
               example:
-                  {
-                    "result": {
-                      "id": "cinse21112019-gxx123",
-                      "status": task_cancel,
-                      "salutation": 1,
-                      "firstName": "I.",
-                      "insertion": "",
-                      "lastName": "insezo",
-                      "country": "NL",
-                      "zipcode": "3355pp",
-                      "streetName": "Kattestaart",
-                      "houseNumber": "10",
-                      "houseNumberAddition": "",
-                      "city": "Papendrecht",
-                      "phone": "",
-                      "netcode": "31",
-                      "mobile": "612345678",
-                      "email": "info@insezo.com",
-                      "brand": "Insezo",
-                      "group": "Afzuigkap",
-                      "number": "AF101",
-                      "purchaseDate": "2019-11-01",
-                      "complaint": "",
-                      "purchasePlace": "",
-                      "language": "NL",
-                      "companyName": "",
-                      "affiliateBrand": "",
-                    }
+                {
+                  "result": {
+                    "id": "cinse21112019-gxx123",
+                    "status": task_cancel,
+                    "salutation": 1,
+                    "firstName": "I.",
+                    "insertion": "",
+                    "lastName": "insezo",
+                    "country": "NL",
+                    "zipcode": "3355pp",
+                    "streetName": "Kattestaart",
+                    "houseNumber": "10",
+                    "houseNumberAddition": "",
+                    "city": "Papendrecht",
+                    "phone": "",
+                    "netcode": "31",
+                    "mobile": "612345678",
+                    "email": "info@insezo.com",
+                    "brand": "Insezo",
+                    "group": "Afzuigkap",
+                    "number": "AF101",
+                    "purchaseDate": "2019-11-01",
+                    "complaint": "",
+                    "purchasePlace": "",
+                    "language": "NL",
+                    "companyName": "",
+                    "affiliateBrand": "",
                   }
+                }
         '400':
           description: Bad request
     post:
@@ -1639,14 +1675,14 @@ paths:
                   status:
                     type: integer
               example:
-                  {
-                    "status": 201,
-                    "id": "cinse21112019-5ff1a5",
-                    "redirectUrl": "https:\/\/app.insezo.com\/complaints\/modify?p=finse21112019-5ff1a5",
-                    "autofill": {
-                      "brand": "Insezo",
-                    }
+                {
+                  "status": 201,
+                  "id": "cinse21112019-5ff1a5",
+                  "redirectUrl": "https:\/\/app.insezo.com\/complaints\/modify?p=finse21112019-5ff1a5",
+                  "autofill": {
+                    "brand": "Insezo",
                   }
+                }
   /me/servicepartners:
     get:
       summary: Returns all service partners that are affiliated with a production company
@@ -1668,16 +1704,16 @@ paths:
                     name:
                       type: string
               example:
-                  {
-                    "result": [
-                    {"id":1000000000003,
-                     "name": "Insezo Service"
+                {
+                  "result": [
+                    { "id": 1000000000003,
+                      "name": "Insezo Service"
                     },
-                    {"id":1000000000004,
-                     "name": "Insezo Service You"
+                    { "id": 1000000000004,
+                      "name": "Insezo Service You"
                     }
-                    ]
-                  }
+                  ]
+                }
   /me/partnerbrands:
     get:
       summary: Returns all brands that are affiliated with a service company
@@ -1699,16 +1735,16 @@ paths:
                     name:
                       type: string
               example:
-                  {
-                    "result": [
-                    {"id":1000000000001,
-                     "name": "Insezo Dishwashers"
+                {
+                  "result": [
+                    { "id": 1000000000001,
+                      "name": "Insezo Dishwashers"
                     },
-                    {"id":1000000000002,
-                     "name": "Insezo Ovens"
+                    { "id": 1000000000002,
+                      "name": "Insezo Ovens"
                     }
-                    ]
-                  }
+                  ]
+                }
 components:
   securitySchemes:
     bearerAuth:

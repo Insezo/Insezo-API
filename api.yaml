@@ -1199,6 +1199,8 @@ paths:
                   type: string
                 remark:
                   type: string
+                block:
+                  type: boolean
             example:
               { "zipcode": "3355pp","email": "info@insezo.com" }
       responses:

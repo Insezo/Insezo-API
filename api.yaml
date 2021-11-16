@@ -746,6 +746,39 @@ paths:
         '422':
           description: Unprocessable Entity
   /products/{productId}:
+    get:
+      summary: Returns product information by id
+      description: ""
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                      productId:
+                        type: integer
+                      companyId:
+                        type: integer
+                      productNumber:
+                        type: string
+                      productGroup:
+                        type: string
+                      productDescription:
+                        type: string
+              example:
+                {
+                  "result": {
+                        "productId": 10000350,
+                        "companyId": 7378787652899,
+                        "productNumber": "18/15",
+                        "productGroup": "afzuigkap",
+                        "productDescription": "Twist wandschouw"
+                      }
+                }
     put:
       summary: Update the product with the supplied data
       description: ""
@@ -925,6 +958,39 @@ paths:
         '422':
           description: Unprocessable Entity
   /parts/{partId}:
+    get:
+      summary: Returns parts information by id
+      description: ""
+      tags:
+        - Parts
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  partId:
+                    type: integer
+                  companyId:
+                    type: integer
+                  partNumber:
+                    type: string
+                  partNumberExtra:
+                    type: string
+                  productDescription:
+                    type: string
+              example:
+                {
+                  "result": {
+                    "partId": 32017869,
+                    "companyId": 7378787652899,
+                    "partNumber": "09534000",
+                    "partNumberExtra": "",
+                    "productDescription": "Seitenstein hinten"
+                  }
+                }
     put:
       summary: Update the part with the supplied data
       description: ""

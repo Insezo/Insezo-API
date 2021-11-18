@@ -189,7 +189,7 @@ paths:
                   ]
                 }
         '400':
-          description: Bad request
+          description: Bad Request
     put:
       summary: Updates the task with the supplied data
       description: ""
@@ -303,7 +303,7 @@ paths:
                   }
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /tasks:
@@ -438,7 +438,7 @@ paths:
                   }
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /tasks/free:
@@ -562,7 +562,7 @@ paths:
                   "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /tasks/{taskNumber}/phase:
@@ -590,7 +590,7 @@ paths:
         '204':
           description: No Content
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /tasks/{taskNumber}/document:
@@ -618,7 +618,7 @@ paths:
         '204':
           description: No Content
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /products:
@@ -742,7 +742,7 @@ paths:
                   "id": "50001",
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /products/{productId}:
@@ -835,9 +835,19 @@ paths:
                   "id": "50001",
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
+    delete:
+      summary: Deletes the product
+      description: ""
+      tags:
+        - Products
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
   /parts:
     get:
       summary: Returns all parts
@@ -954,7 +964,7 @@ paths:
                   "id": "50001",
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /parts/{partId}:
@@ -1043,9 +1053,19 @@ paths:
                   "id": "50001",
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
+    delete:
+      summary: Deletes the part
+      description: ""
+      tags:
+        - Parts
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
   /relations:
     get:
       summary: Returns all relations
@@ -1184,7 +1204,7 @@ paths:
                   "status": 201,
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /relations/{relationId}:
@@ -1279,7 +1299,7 @@ paths:
         '204':
           description: No Content
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /returns:
@@ -1412,7 +1432,7 @@ paths:
                   }
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /fulfilment:
@@ -1534,7 +1554,7 @@ paths:
                   }
                 }
         '400':
-          description: Bad request
+          description: Bad Request
         '422':
           description: Unprocessable Entity
   /registrations/complaints/{complaintId}:
@@ -1637,7 +1657,7 @@ paths:
                   }
                 }
         '400':
-          description: Bad request
+          description: Bad Request
     post:
       summary: Creates a new complaint registration with the supplied data
       description: ""

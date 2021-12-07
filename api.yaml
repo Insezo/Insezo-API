@@ -650,7 +650,7 @@ paths:
                   description: format 17:00
                 communication:
                   type: boolean
-                  description: Should communication be send to customer
+                  description: Send communication to customer
               required:
                 - startDate
                 - startTime

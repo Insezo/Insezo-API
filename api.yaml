@@ -568,7 +568,7 @@ paths:
   /tasks/{taskNumber}/phase:
     put:
       summary: Set a new task phase
-      description: ""
+      description: "Task cannot be finished when assigning a new interim phase"
       tags:
         - Tasks
       parameters:
@@ -621,9 +621,47 @@ paths:
           description: Bad Request
         '422':
           description: Unprocessable Entity
+  /tasks/{taskNumber}/technician/company:
+    post:
+      summary: Link a technician
+      description: ""
+      tags:
+        - Tasks
+      parameters:
+        - name: taskNumber
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                identifier:
+                  type: string
+                  description: id of technician company
+                communication:
+                  type: boolean
+                  description: Send communication to customer
+                keepAppointment:
+                  type: boolean
+                  description: If a appointment already has been made keep the data
+              required:
+                - identifier
+            example:
+              { "identifier": "0123456789","communication": true,"keepAppointment": false }
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
   /tasks/{taskNumber}/appointment:
     post:
-      summary: Makes a visit appointment for supplied task
+      summary: Creates an appointment for visit
       description: ""
       tags:
         - Tasks
@@ -656,7 +694,7 @@ paths:
                 - startTime
                 - endTime
             example:
-              { "startDate": "07-12-2021","startTime": "10:00","endTime": "12:00","communication":true }
+              { "startDate": "07-12-2021","startTime": "10:00","endTime": "12:00","communication": true }
       responses:
         '200':
           description: Ok
@@ -802,25 +840,25 @@ paths:
               schema:
                 type: object
                 properties:
-                      productId:
-                        type: integer
-                      companyId:
-                        type: integer
-                      productNumber:
-                        type: string
-                      productGroup:
-                        type: string
-                      productDescription:
-                        type: string
+                  productId:
+                    type: integer
+                  companyId:
+                    type: integer
+                  productNumber:
+                    type: string
+                  productGroup:
+                    type: string
+                  productDescription:
+                    type: string
               example:
                 {
                   "result": {
-                        "productId": 10000350,
-                        "companyId": 7378787652899,
-                        "productNumber": "18/15",
-                        "productGroup": "afzuigkap",
-                        "productDescription": "Twist wandschouw"
-                      }
+                    "productId": 10000350,
+                    "companyId": 7378787652899,
+                    "productNumber": "18/15",
+                    "productGroup": "afzuigkap",
+                    "productDescription": "Twist wandschouw"
+                  }
                 }
     put:
       summary: Update the product with the supplied data
@@ -1820,7 +1858,7 @@ paths:
                     "brand": "Insezo",
                   }
                 }
-  /me/servicepartners:
+  /me/partners/service:
     get:
       summary: Returns all service partners that are affiliated with a production company
       description: ""
@@ -1851,7 +1889,7 @@ paths:
                     }
                   ]
                 }
-  /me/partnerbrands:
+  /me/partners/brands:
     get:
       summary: Returns all brands that are affiliated with a service company
       description: ""
@@ -1879,6 +1917,37 @@ paths:
                     },
                     { "id": 1000000000002,
                       "name": "Insezo Ovens"
+                    }
+                  ]
+                }
+  /me/partners/technicians:
+    get:
+      summary: Returns all technician companies that are affiliated
+      description: ""
+      tags:
+        - Me
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+              example:
+                {
+                  "result": [
+                    { "id": 1000000000001,
+                      "name": "Insezo technician"
+                    },
+                    { "id": 1000000000002,
+                      "name": "Jan Modaal monteur"
                     }
                   ]
                 }

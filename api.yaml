@@ -585,7 +585,7 @@ paths:
               properties:
                 phase:
                   type: string
-                  enum: [ wait_for_customer,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted ]
+                  enum: [ wait_for_customer,wait_for_parts,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted ]
       responses:
         '204':
           description: No Content

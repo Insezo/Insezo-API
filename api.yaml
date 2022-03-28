@@ -307,6 +307,172 @@ paths:
         '422':
           description: Unprocessable Entity
   /tasks:
+    get:
+      summary: Returns many task records
+      description: ""
+      tags:
+        - Tasks
+      parameters:
+        - in: query
+          name: selection
+          schema:
+            type: string
+          required: false
+          description: "Comma split list of fields to return. Example: ?selection=id, orderType"
+        - in: query
+          name: start
+          schema:
+            type: string
+          required: false
+          description: "Token that tracks the next 50 records to return. When more than 50 records are left the result will hold a 'start' field which should be passed for the next 50 records"
+        - in: query
+          name: lastChanged
+          schema:
+            type: string
+            format: date
+          required: false
+          description: "Date that tracks the last time the task was updated with new data. This is an easy way to only return tasks that have updated data from a certain date"
+        - in: query
+          name: year
+          schema:
+            type: string
+            default : "Current year (2022)"
+          required: false
+          description: "Only returns records that are created in a certain year"
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      orderType:
+                        type: string
+                      status:
+                        type: string
+                      lastName:
+                        type: string
+                      country:
+                        type: string
+                      purchaseDate:
+                        type: string
+                      city:
+                        type: string
+                      purchasePlace:
+                        type: string
+                      companyName:
+                        type: string
+                      houseNumber:
+                        type: string
+                      dispatchCode:
+                        type: string
+                      language:
+                        type: string
+                      estMaintenanceCode:
+                        type: string
+                      affiliateBrand:
+                        type: string
+                      relation:
+                        type: string
+                      repairAdvice:
+                        type: string
+                      reference:
+                        type: array
+                        items:
+                          type: string
+                      streetName:
+                        type: string
+                      netcode:
+                        type: string
+                      warranty:
+                        type: integer
+                      brand:
+                        type: string
+                      email:
+                        type: string
+                      serialNumber:
+                        type: string
+                      failureCode:
+                        type: string
+                      relationEmail:
+                        type: string
+                      mobile:
+                        type: string
+                      productNumber:
+                        type: string
+                      houseNumberAddition:
+                        type: string
+                      zipcode:
+                        type: string
+                      firstName:
+                        type: string
+                      realMaintenanceCode:
+                        type: string
+                      relationName:
+                        type: string
+                      repairCause:
+                        type: string
+                      phone:
+                        type: string
+                      productGroup:
+                        type: string
+                      complaint:
+                        type: string
+                      insertion:
+                        type: string
+                      salutation:
+                        type: integer
+              example:
+                "result": {
+                  "id": "inse21112019-7e9c60",
+                  "orderType": service,
+                  "status": task_cancel,
+                  "salutation": 1,
+                  "firstName": "I.",
+                  "insertion": "",
+                  "lastName": "insezo",
+                  "country": "NL",
+                  "zipcode": "3355pp",
+                  "streetName": "Kattestaart",
+                  "houseNumber": "10",
+                  "houseNumberAddition": "",
+                  "city": "Papendrecht",
+                  "phone": "",
+                  "netcode": "31",
+                  "mobile": "612345678",
+                  "email": "info@insezo.com",
+                  "brand": "Insezo",
+                  "productGroup": "Afzuigkap",
+                  "productNumber": "AF101",
+                  "purchaseDate": "2019-11-01",
+                  "warranty": 2,
+                  "complaint": "",
+                  "serialNumber": "",
+                  "purchasePlace": "",
+                  "language": "NL",
+                  "companyName": "",
+                  "affiliateBrand": "",
+                  "estMaintenanceCode": "",
+                  "realMaintenanceCode": "",
+                  "failureCode": "",
+                  "dispatchCode": "",
+                  "relation": "",
+                  "relationName": "",
+                  "relationEmail": "",
+                  "repairAdvice": "",
+                  "repairCause": "",
+                  "reference": [
+                      ""
+                  ]
+                }
+        '400':
+          description: Bad Request
     post:
       summary: Creates a new task with predefined product data
       description: ""
@@ -970,7 +1136,7 @@ paths:
                         type: string
                       partNumberExtra:
                         type: string
-                      productDescription:
+                      partDescription:
                         type: string
               example:
                 {
@@ -982,14 +1148,14 @@ paths:
                         "companyId": 7378787652899,
                         "partNumber": "09534000",
                         "partNumberExtra": "",
-                        "productDescription": "Seitenstein hinten"
+                        "partDescription": "Seitenstein hinten"
                       },
                       {
                         "partId": 20017870,
                         "companyId": 7378787652899,
                         "partNumber": "09534100",
                         "partNumberExtra": "",
-                        "productDescription": "Seitenstein vorne"
+                        "partDescription": "Seitenstein vorne"
                       }
                     ]
                   }
@@ -1070,7 +1236,7 @@ paths:
                     type: string
                   partNumberExtra:
                     type: string
-                  productDescription:
+                  partDescription:
                     type: string
               example:
                 {
@@ -1079,7 +1245,7 @@ paths:
                     "companyId": 7378787652899,
                     "partNumber": "09534000",
                     "partNumberExtra": "",
-                    "productDescription": "Seitenstein hinten"
+                    "partDescription": "Seitenstein hinten"
                   }
                 }
     put:

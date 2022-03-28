@@ -347,6 +347,10 @@ paths:
               schema:
                 type: object
                 properties:
+                  count:
+                    type: integer
+                  start:
+                    type: integer
                   result:
                     type: object
                     properties:
@@ -429,6 +433,8 @@ paths:
                       salutation:
                         type: integer
               example:
+                "count": 50
+                "start": 14343
                 "result": {
                   "id": "inse21112019-7e9c60",
                   "orderType": service,

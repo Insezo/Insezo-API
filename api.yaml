@@ -1144,6 +1144,10 @@ paths:
                         type: string
                       partDescription:
                         type: string
+                      purchasePrice:
+                        type: number
+                      salePrice:
+                        type: number
               example:
                 {
                   "result": {
@@ -1154,14 +1158,18 @@ paths:
                         "companyId": 7378787652899,
                         "partNumber": "09534000",
                         "partNumberExtra": "",
-                        "partDescription": "Seitenstein hinten"
+                        "partDescription": "Seitenstein hinten",
+                        "purchasePrice": 10.00,
+                        "salePrice": 20.00
                       },
                       {
                         "partId": 20017870,
                         "companyId": 7378787652899,
                         "partNumber": "09534100",
                         "partNumberExtra": "",
-                        "partDescription": "Seitenstein vorne"
+                        "partDescription": "Seitenstein vorne",
+                        "purchasePrice": 15.00,
+                        "salePrice": 30.00
                       }
                     ]
                   }
@@ -1244,6 +1252,10 @@ paths:
                     type: string
                   partDescription:
                     type: string
+                  purchasePrice:
+                    type: number
+                  salePrice:
+                    type: number
               example:
                 {
                   "result": {
@@ -1251,7 +1263,9 @@ paths:
                     "companyId": 7378787652899,
                     "partNumber": "09534000",
                     "partNumberExtra": "",
-                    "partDescription": "Seitenstein hinten"
+                    "partDescription": "Seitenstein hinten",
+                    "purchasePrice":30.00,
+                    "salePrice":60.00
                   }
                 }
     put:

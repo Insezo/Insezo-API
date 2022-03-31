@@ -41,6 +41,8 @@ tags:
     description: Everything about fulfilment
   - name: Registration - Complaints
     description: Everything about complaint registrations
+  - name: Bulk
+    description: Bulk actions for resources
   - name: Me
     description: Information about company account
 paths:
@@ -336,7 +338,7 @@ paths:
           name: year
           schema:
             type: string
-            default : "Current year (2022)"
+            default: "Current year (2022)"
           required: false
           description: "Only returns records that are created in a certain year"
       responses:
@@ -1264,8 +1266,8 @@ paths:
                     "partNumber": "09534000",
                     "partNumberExtra": "",
                     "partDescription": "Seitenstein hinten",
-                    "purchasePrice":30.00,
-                    "salePrice":60.00
+                    "purchasePrice": 30.00,
+                    "salePrice": 60.00
                   }
                 }
     put:
@@ -2043,6 +2045,154 @@ paths:
                   "autofill": {
                     "brand": "Insezo",
                   }
+                }
+  /bulk/tasks:
+    post:
+      summary: Bulk insert for task resources
+      description: "Max 100 resources at a time"
+      tags:
+        - Bulk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  orderType:
+                    type: string
+                    enum: [ service,building,installation,custom ]
+                    default: service
+                  salutation:
+                    type: integer
+                    minimum: 1
+                    maximum: 4
+                    description: mr/mrs, mr, mrs, company
+                  language:
+                    type: string
+                  firstName:
+                    type: string
+                    maxLength: 35
+                  insertion:
+                    type: string
+                    maxLength: 10
+                  lastName:
+                    type: string
+                    maxLength: 35
+                  companyName:
+                    type: string
+                    maxLength: 60
+                  country:
+                    type: string
+                    minimum: 2
+                    maximum: 2
+                  city:
+                    type: string
+                    maxLength: 40
+                  zipcode:
+                    type: string
+                    maxLength: 10
+                  streetName:
+                    type: string
+                    maxLength: 60
+                  houseNumber:
+                    type: string
+                    maxLength: 10
+                  email:
+                    type: string
+                    maxLength: 60
+                  mobile:
+                    type: string
+                    maxLength: 20
+                  netcode:
+                    type: string
+                  phone:
+                    type: string
+                    maxLength: 20
+                  contractor:
+                    type: integer
+                    description: consult "/me/servicepartners" endpoint for allowed contractors
+                  brand:
+                    type: integer
+                  productGroup:
+                    type: string
+                  productNumber:
+                    type: string
+                  purchaseDate:
+                    type: string
+                    format: date
+                  complaint:
+                    type: string
+                    maxLength: 1500
+                  repairAdvice:
+                    type: string
+                    maxLength: 500
+                  warranty:
+                    type: integer
+                  relation:
+                    type: string
+                    format: search number
+                  reference:
+                    type: array
+                    items:
+                      type: string
+                    maxLength: 60
+                    maxItems: 4
+                required:
+                  - salutation
+                  - country
+                  - zipcode
+                  - streetName
+                  - houseNumber
+                  - city
+              example:
+                [ { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] },{ "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] } ]
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    redirectUrl:
+                      type: string
+                    id:
+                      type: string
+                    autofill:
+                      type: object
+                      properties:
+                        productGroup:
+                          type: string
+                        brand:
+                          type: number
+                    status:
+                      type: integer
+              example:
+                {
+                  "status": 200,
+                  "result": [
+                    {
+                      "status": 422,
+                      "error": {
+                        "message": [
+                            "Missing parameters: city"
+                        ]
+                      },
+                    },
+                    {
+                      "status": 201,
+                      "id": "inse21112019-d5e617",
+                      "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
+                      "autofill": {
+                        "brand": "Insezo",
+                        "productGroup": "Afzuigkap"
+                      }
+                    }
+                  ]
                 }
   /me/partners/service:
     get:

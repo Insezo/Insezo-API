@@ -547,6 +547,9 @@ paths:
                   description: consult "/me/servicepartners" endpoint for allowed contractors
                 brand:
                   type: integer
+                affiliateBrand:
+                  type: string
+                  description: consult "/me/affiliatebrands" endpoint for affiliated brands
                 productGroup:
                   type: string
                 productNumber:
@@ -680,6 +683,9 @@ paths:
                 brand:
                   type: string
                   maxLength: 40
+                affiliateBrand:
+                  type: string
+                  description: consult "/me/affiliatebrands" endpoint for affiliated brands
                 group:
                   type: string
                   maxLength: 40
@@ -2328,6 +2334,37 @@ paths:
                     },
                     { "id": 1000000000002,
                       "name": "Jan Modaal monteur"
+                    }
+                  ]
+                }
+  /me/affiliatebrands:
+    get:
+      summary: Returns all affiliate brand for production companies
+      description: ""
+      tags:
+        - Me
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+              example:
+                {
+                  "result": [
+                    { "id": 23,
+                      "name": "Inseza"
+                    },
+                    { "id": 14,
+                      "name": "Inseba"
                     }
                   ]
                 }

@@ -1385,6 +1385,43 @@ paths:
           description: No Content
         '400':
           description: Bad Request
+  /parts/{partId}/prices:
+    post:
+      summary: Inserts a new price with an effective from date
+      description: "When the effectivePriceDate is equal or lower than today's date the prices are immediately updated."
+      tags:
+        - Parts
+      parameters:
+        - name: partId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                purchasePrice:
+                  type: number
+                  format: currency
+                salePrice:
+                  type: number
+                  format: currency
+                costPrice:
+                  type: number
+                  format: currency
+                effectivePriceDate:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
   /relations:
     get:
       summary: Returns all relations

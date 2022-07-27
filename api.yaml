@@ -2139,6 +2139,13 @@ paths:
       description: "Max 100 resources at a time"
       tags:
         - Bulk
+      parameters:
+        - name: skipDuplicate
+          in: query
+          schema:
+            type: string
+            enum: ["address"]
+          description: Skips duplicates based on parameter (already existing address)
       requestBody:
         content:
           application/json:

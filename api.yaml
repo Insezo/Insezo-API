@@ -683,9 +683,6 @@ paths:
                 brand:
                   type: string
                   maxLength: 40
-                affiliateBrand:
-                  type: string
-                  description: consult "/me/affiliatebrands" endpoint for affiliated brands
                 group:
                   type: string
                   maxLength: 40
@@ -1107,8 +1104,9 @@ paths:
                   type: string
                 productManufacturerNumber:
                   type: string
-                productBrand:
+                allignedBrand:
                   type: string
+                  description: call /me/affiliatebrands endpoint for brands (use id)
                 eanCode:
                   type: string
                 remark:

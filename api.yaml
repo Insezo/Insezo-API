@@ -1559,6 +1559,8 @@ paths:
                 }
         '400':
           description: Bad Request
+        '409':
+          description: Conflict
         '422':
           description: Unprocessable Entity
   /relations/{relationId}:

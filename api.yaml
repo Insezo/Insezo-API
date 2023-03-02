@@ -1595,6 +1595,8 @@ paths:
           description: Conflict
         '422':
           description: Unprocessable Entity
+        '409':
+          description: Conflict
   /relations/{relationId}:
     get:
       summary: Returns relation from id

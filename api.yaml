@@ -187,7 +187,7 @@ paths:
                   "repairAdvice": "",
                   "repairCause": "",
                   "reference": [
-                      ""
+                    ""
                   ]
                 }
         '400':
@@ -476,7 +476,7 @@ paths:
                   "repairAdvice": "",
                   "repairCause": "",
                   "reference": [
-                      ""
+                    ""
                   ]
                 }
         '400':
@@ -872,6 +872,38 @@ paths:
                 - endTime
             example:
               { "startDate": "07-12-2021","startTime": "10:00","endTime": "12:00","communication": true }
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+  /tasks/{taskNumber}/finish:
+    post:
+      summary: Finishes the task
+      description: ""
+      tags:
+        - Tasks
+      parameters:
+        - name: taskNumber
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [ repair_complete,task_cancel,complete_no_parts,send_part_fix ]
+              required:
+                - status
+            example:
+              { "status": "repair_complete" }
       responses:
         '200':
           description: Ok
@@ -2144,7 +2176,7 @@ paths:
           in: query
           schema:
             type: string
-            enum: ["address"]
+            enum: [ "address" ]
           description: Skips duplicates based on parameter (already existing address)
       requestBody:
         content:
@@ -2273,7 +2305,7 @@ paths:
                       "status": 422,
                       "error": {
                         "message": [
-                            "Missing parameters: city"
+                          "Missing parameters: city"
                         ]
                       },
                     },

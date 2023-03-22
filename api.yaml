@@ -58,6 +58,71 @@ paths:
           in: path
           schema:
             type: string
+        - in: query
+          name: selection
+          schema:
+            type: string
+          required: false
+          description: >
+            Sort order:
+             * `id` - 
+             * `orderType` - 
+             * `status` - 
+             * `salutation` - 
+             * `firstName` - 
+             * `insertion` - 
+             * `lastName` - 
+             * `country` - 
+             * `zipcode` - 
+             * `streetName` - 
+             * `houseNumber` - 
+             * `houseNumberAddition` - 
+             * `city` - 
+             * `phone` - 
+             * `netcode` - 
+             * `mobile` - 
+             * `email` - 
+             * `brand` - 
+             * `productGroup` - 
+             * `productNumber` - 
+             * `brand` - 
+             * `group` - 
+             * `number` - 
+             * `purchaseDate` - 
+             * `warranty` - 
+             * `complaint` - 
+             * `serialNumber` - 
+             * `purchasePlace` - 
+             * `language` - 
+             * `companyName` - 
+             * `affiliateBrand` - 
+             * `estMaintenanceCode` - 
+             * `realMaintenanceCode` - 
+             * `failureCode` - 
+             * `dispatchCode` - 
+             * `relation` - 
+             * `relationName` -
+             * `relationEmail` -
+             * `repairAdvice` -
+             * `repairCause` -
+             * `reference` -
+             * `contractor` -
+             * `contractorAssigned` -
+             * `technicianCompany` -
+             * `confirmed` -
+             * `visitPlanned` -
+             * `customerVisited` -
+             * `customerBilled` -
+             * `payway` -
+             * `technicianCompanyAssigned` -
+             * `visitStart` -
+             * `visitEnd` -
+             * `repairComplete` -
+             * `repairDuration` -
+             * `reservedParts` -
+             * `usedParts` -
+             * `repairDuration` -
+             * `created` -
       responses:
         '200':
           description: Ok

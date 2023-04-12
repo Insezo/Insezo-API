@@ -41,6 +41,8 @@ tags:
     description: Everything about fulfilment
   - name: Registration - Complaints
     description: Everything about complaint registrations
+  - name: Registration - Products
+    description: Everything about product registrations
   - name: Bulk
     description: Bulk actions for resources
   - name: Me
@@ -2187,6 +2189,206 @@ paths:
                   maxLength: 1500
                 language:
                   type: string
+                affiliateBrand:
+                  type: string
+                  maxLength: 20
+              required:
+                - salutation
+                - country
+                - zipcode
+                - brand
+                - streetName
+                - houseNumber
+                - city
+            example:
+              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","number": "AF101","remark": "Box is damaged" }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  redirectUrl:
+                    type: string
+                  id:
+                    type: string
+                  autofill:
+                    type: object
+                    properties:
+                      productGroup:
+                        type: string
+                      brand:
+                        type: number
+                  status:
+                    type: integer
+              example:
+                {
+                  "status": 201,
+                  "id": "cinse21112019-5ff1a5",
+                  "redirectUrl": "https:\/\/app.insezo.com\/complaints\/modify?p=finse21112019-5ff1a5",
+                  "autofill": {
+                    "brand": "Insezo",
+                  }
+                }
+  /registrations/products/{resourceId}:
+    get:
+      summary: Returns information about the product registration
+      description: ""
+      tags:
+        - Registration - Products
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      customerName:
+                        type: string
+                      country:
+                        type: string
+                      zipcode:
+                        type: string
+                      streetName:
+                        type: string
+                      houseNumber:
+                        type: string
+                      houseNumberAddition:
+                        type: string
+                      city:
+                        type: string
+                      phone:
+                        type: string
+                      netcode:
+                        type: string
+                      mobile:
+                        type: string
+                      email:
+                        type: string
+                      brand:
+                        type: string
+                      productGroup:
+                        type: string
+                      productNumber:
+                        type: string
+                      purchaseDate:
+                        type: string
+                      warranty:
+                        type: string
+                      serialNumber:
+                        type: string
+                      purchasePlace:
+                        type: string
+                      language:
+                        type: string
+                      companyName:
+                        type: string
+                      affiliateBrand:
+                        type: string
+                      permission:
+                        type: boolean
+              example:
+                {
+                  "result": {
+                    "id": "rinse042023-79aa9b",
+                    "customerName": "Roel aarnoudse",
+                    "country": "NL",
+                    "zipcode": "3355pp",
+                    "streetName": "Kattestaart",
+                    "houseNumber": "10",
+                    "houseNumberAddition": "",
+                    "city": "Papendrecht",
+                    "phone": "",
+                    "netcode": "31",
+                    "mobile": "",
+                    "email": "",
+                    "brand": "Novy BE",
+                    "productGroup": "Kookplaat",
+                    "productNumber": "1003",
+                    "purchaseDate": "01-01-2022",
+                    "warranty": 42,
+                    "serialNumber": "123456",
+                    "purchasePlace": "",
+                    "language": "",
+                    "companyName": "",
+                    "affiliateBrand": 0,
+                    "permission": 0
+                  }
+                }
+        '400':
+          description: Bad Request
+    post:
+      summary: Creates a new product registration with the supplied data
+      description: ""
+      tags:
+        - Registration - Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salutation:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                  description: mr/mrs, mr, mrs, company
+                customerName:
+                  type: string
+                  maxLength: 60
+                companyName:
+                  type: string
+                  maxLength: 60
+                country:
+                  type: string
+                  minimum: 2
+                  maximum: 2
+                city:
+                  type: string
+                  maxLength: 40
+                zipcode:
+                  type: string
+                  maxLength: 10
+                streetName:
+                  type: string
+                  maxLength: 60
+                houseNumber:
+                  type: string
+                  maxLength: 10
+                email:
+                  type: string
+                  maxLength: 60
+                mobile:
+                  type: string
+                  maxLength: 20
+                netcode:
+                  type: string
+                phone:
+                  type: string
+                  maxLength: 20
+                brand:
+                  type: string
+                  description: call /me api for partnersbrand ID's
+                number:
+                  type: string
+                purchaseDate:
+                  type: string
+                  format: date
+                purchasePlace:
+                  type: string
+                  maxLength: 40
+                language:
+                  type: string
+                permission:
+                  type: boolean
                 affiliateBrand:
                   type: string
                   maxLength: 20

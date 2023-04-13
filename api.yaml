@@ -2403,7 +2403,11 @@ paths:
                 - houseNumber
                 - city
             example:
-              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","number": "AF101","remark": "Box is damaged" }
+              { "salutation": 2,"firstName": "roel","insertion": "",
+                "lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl",
+                "zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht",
+                "phone": "0786154678","netcode": "31","mobile": "612345678","purchaseDate":"02-03-2022",
+                "email": "info@insezo.com","number": "AF101","permission":true }
       responses:
         '200':
           description: Created

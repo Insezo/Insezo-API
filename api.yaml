@@ -2113,6 +2113,7 @@ paths:
                 }
         '400':
           description: Bad Request
+  /registrations/complaints:
     post:
       summary: Creates a new complaint registration with the supplied data
       description: ""
@@ -2325,6 +2326,7 @@ paths:
                 }
         '400':
           description: Bad Request
+  /registrations/products:
     post:
       summary: Creates a new product registration with the supplied data
       description: ""

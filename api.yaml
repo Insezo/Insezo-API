@@ -66,7 +66,7 @@ paths:
             type: string
           required: false
           description: >
-            Sort order:
+            Possible fields:
              * `id` - 
              * `orderType` - 
              * `status` - 
@@ -99,8 +99,11 @@ paths:
              * `companyName` - 
              * `affiliateBrand` - 
              * `estMaintenanceCode` - 
+             * `estMaintenanceCodeDesc` - 
              * `realMaintenanceCode` - 
+             * `realMaintenanceCodeDesc` - 
              * `failureCode` - 
+             * `failureCodeDesc` - 
              * `dispatchCode` - 
              * `relation` - 
              * `relationName` -
@@ -121,9 +124,14 @@ paths:
              * `visitEnd` -
              * `repairComplete` -
              * `repairDuration` -
+             * `extraCode` -
+             * `extraCodeTwo` -
+             * `repeatedFrom` -
+             * `warrantyChanged` -
              * `reservedParts` -
              * `usedParts` -
              * `repairDuration` -
+             * `createdBy` -
              * `created` -
       responses:
         '200':

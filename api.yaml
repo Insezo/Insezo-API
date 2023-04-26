@@ -106,6 +106,7 @@ paths:
              * `failureCodeDesc` - 
              * `dispatchCode` - 
              * `relation` - 
+             * `relationNumber` - 
              * `relationName` -
              * `relationEmail` -
              * `repairAdvice` -

@@ -396,7 +396,75 @@ paths:
           schema:
             type: string
           required: false
-          description: "Comma split list of fields to return. Example: ?selection=id, orderType"
+          description: >
+            Possible fields:
+             * `id` - 
+             * `orderType` - 
+             * `status` - 
+             * `salutation` - 
+             * `firstName` - 
+             * `insertion` - 
+             * `lastName` - 
+             * `country` - 
+             * `zipcode` - 
+             * `streetName` - 
+             * `houseNumber` - 
+             * `houseNumberAddition` - 
+             * `city` - 
+             * `phone` - 
+             * `netcode` - 
+             * `mobile` - 
+             * `email` - 
+             * `brand` - 
+             * `productGroup` - 
+             * `productNumber` - 
+             * `brand` - 
+             * `group` - 
+             * `number` - 
+             * `purchaseDate` - 
+             * `warranty` - 
+             * `complaint` - 
+             * `serialNumber` - 
+             * `purchasePlace` - 
+             * `language` - 
+             * `companyName` - 
+             * `affiliateBrand` - 
+             * `estMaintenanceCode` - 
+             * `estMaintenanceCodeDesc` - 
+             * `realMaintenanceCode` - 
+             * `realMaintenanceCodeDesc` - 
+             * `failureCode` - 
+             * `failureCodeDesc` - 
+             * `dispatchCode` - 
+             * `relation` - 
+             * `relationNumber` - 
+             * `relationName` -
+             * `relationEmail` -
+             * `repairAdvice` -
+             * `repairCause` -
+             * `reference` -
+             * `contractor` -
+             * `contractorAssigned` -
+             * `technicianCompany` -
+             * `confirmed` -
+             * `visitPlanned` -
+             * `customerVisited` -
+             * `customerBilled` -
+             * `payway` -
+             * `technicianCompanyAssigned` -
+             * `visitStart` -
+             * `visitEnd` -
+             * `repairComplete` -
+             * `repairDuration` -
+             * `extraCode` -
+             * `extraCodeTwo` -
+             * `repeatedFrom` -
+             * `warrantyChanged` -
+             * `reservedParts` -
+             * `usedParts` -
+             * `repairDuration` -
+             * `createdBy` -
+             * `created` -
         - in: query
           name: start
           schema:
@@ -2417,8 +2485,8 @@ paths:
               { "salutation": 2,"firstName": "roel","insertion": "",
                 "lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl",
                 "zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht",
-                "phone": "0786154678","netcode": "31","mobile": "612345678","purchaseDate":"02-03-2022",
-                "email": "info@insezo.com","number": "AF101","permission":true }
+                "phone": "0786154678","netcode": "31","mobile": "612345678","purchaseDate": "02-03-2022",
+                "email": "info@insezo.com","number": "AF101","permission": true }
       responses:
         '200':
           description: Created

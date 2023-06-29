@@ -287,7 +287,7 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [ service,building,installation,custom ]
+                  enum: [ service,building,installation,custom,maintenance,exchange  ]
                 salutation:
                   type: integer
                   minimum: 1
@@ -638,7 +638,7 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [ service,building,installation,custom ]
+                  enum: [ service,building,installation,custom,maintenance,exchange ]
                   default: service
                 salutation:
                   type: integer
@@ -2540,7 +2540,7 @@ paths:
                 properties:
                   orderType:
                     type: string
-                    enum: [ service,building,installation,custom ]
+                    enum: [ service,building,installation,custom,maintenance,exchange ]
                     default: service
                   salutation:
                     type: integer

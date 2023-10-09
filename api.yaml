@@ -87,7 +87,6 @@ paths:
              * `brand` - 
              * `productGroup` - 
              * `productNumber` - 
-             * `brand` - 
              * `group` - 
              * `number` - 
              * `purchaseDate` - 
@@ -118,13 +117,19 @@ paths:
              * `confirmed` -
              * `visitPlanned` -
              * `customerVisited` -
+             * `customerVisitedCount` -
              * `customerBilled` -
              * `payway` -
+             * `additionalCosts` -
              * `technicianCompanyAssigned` -
              * `visitStart` -
              * `visitEnd` -
              * `repairComplete` -
              * `repairDuration` -
+             * `producerWorkFee` -
+             * `producerPartsFee` -
+             * `technicianWorkFee` -
+             * `technicianPartsFee` -            
              * `extraCode` -
              * `extraCodeTwo` -
              * `repeatedFrom` -
@@ -418,7 +423,6 @@ paths:
              * `brand` - 
              * `productGroup` - 
              * `productNumber` - 
-             * `brand` - 
              * `group` - 
              * `number` - 
              * `purchaseDate` - 
@@ -449,8 +453,10 @@ paths:
              * `confirmed` -
              * `visitPlanned` -
              * `customerVisited` -
+             * `customerVisitedCount` -
              * `customerBilled` -
              * `payway` -
+             * `additionalCosts` -
              * `technicianCompanyAssigned` -
              * `visitStart` -
              * `visitEnd` -

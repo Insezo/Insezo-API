@@ -45,6 +45,8 @@ tags:
     description: Everything about product registrations
   - name: Bulk
     description: Bulk actions for resources
+  - name: Reviews
+    description: Everything about reviews for tasks
   - name: Me
     description: Information about company account
 paths:
@@ -292,7 +294,7 @@ paths:
               properties:
                 orderType:
                   type: string
-                  enum: [ service,building,installation,custom,maintenance,exchange  ]
+                  enum: [ service,building,installation,custom,maintenance,exchange ]
                 salutation:
                   type: integer
                   minimum: 1
@@ -492,9 +494,16 @@ paths:
           name: year
           schema:
             type: string
-            default: "Current year (2022)"
+            default: "Current year"
           required: false
-          description: "Only returns records that are created in a certain year"
+          description: "Only returns records that are created in year"
+        - in: query
+          name: month
+          schema:
+            type: string
+            default: "Current month"
+          required: false
+          description: "Only returns records that are created in month"
       responses:
         '200':
           description: Ok
@@ -2682,6 +2691,93 @@ paths:
                     }
                   ]
                 }
+  /reviews:
+    get:
+      summary: Returns reviews
+      description: ""
+      tags:
+        - Reviews
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  result:
+                    type: array
+              example:
+                {
+                  "count": 2,
+                  "result": [
+                    {
+                      "id": "inse19092022-7b7bfa",
+                      "sign_up": 1,
+                      "visit": 2,
+                      "technician": 3,
+                      "repair": 4,
+                      "nps": 9,
+                      "remark": ""
+                    },
+                    {
+                      "id": "inse19092022-012345",
+                      "sign_up": 1,
+                      "visit": 2,
+                      "technician": 3,
+                      "repair": 2,
+                      "nps": 5,
+                      "remark": "Took long"
+                    }
+                  ]
+                }
+        '400':
+          description: Bad Request
+  /reviews/{resourceId}:
+    get:
+      summary: Returns information about the task review
+      description: ""
+      tags:
+        - Reviews
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      visit:
+                        type: string
+                      technician:
+                        type: string
+                      repair:
+                        type: string
+                      nps:
+                        type: string
+                      remark:
+                        type: string
+              example:
+                {
+                  "result": {
+                    "id": "inse19092022-7b7bfa",
+                    "sign_up": 1,
+                    "visit": 2,
+                    "technician": 3,
+                    "repair": 4,
+                    "nps": 9,
+                    "remark": ""
+                  }
+                }
+        '400':
+          description: Bad Request
   /me/partners/service:
     get:
       summary: Returns all service partners that are affiliated with a production company

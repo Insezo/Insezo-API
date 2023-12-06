@@ -1,0 +1,76 @@
+get:
+  summary: Returns many stock records
+  description: ""
+  tags:
+    - Stock
+  parameters:
+    - in: query
+      name: start
+      schema:
+        type: string
+      required: false
+      description: "Parameter that tracks the next 50 records to return. When more than 50 records are left the result will hold a 'start' field which should be passed for the next 50 records"
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: int
+              start:
+                type: int
+              result:
+                type: object
+                properties:
+                  id:
+                    type: int
+                  brand:
+                    type: string
+                  partNumber:
+                    type: string
+                  available:
+                    type: int
+                  purchasePrice:
+                    type: string
+                  salePrice:
+                    type: string
+                  safetyStock:
+                    type: int
+                  maxStock:
+                    type: int
+                  location:
+                    type: string
+                  lastUsed:
+                    type: string
+          example:
+            "count": 2
+            "result": [
+              {
+                "id": 6284,
+                "brand": "Insezo",
+                "partNumber": "563-12345",
+                "available": 0,
+                "purchasePrice": "1.96",
+                "salePrice": "2.92",
+                "safetyStock": 0,
+                "maxStock": 0,
+                "location": "",
+                "lastUsed": "23-10-2018 13:48"
+              },
+              {
+                "id": 6285,
+                "brand": "Insezo",
+                "partNumber": "563-12346",
+                "available": 2,
+                "purchasePrice": "12",
+                "salePrice": "24",
+                "safetyStock": 10,
+                "maxStock": 20,
+                "location": "",
+                "lastUsed": "23-10-2018 13:48"
+              } ]
+    '400':
+      description: Bad Request

@@ -1,0 +1,340 @@
+get:
+  summary: Returns information about the task
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+    - in: query
+      name: selection
+      schema:
+        type: string
+      required: false
+      description: >
+        Possible fields:
+         * `id` - 
+         * `orderType` - 
+         * `status` - 
+         * `salutation` - 
+         * `firstName` - 
+         * `insertion` - 
+         * `lastName` - 
+         * `country` - 
+         * `zipcode` - 
+         * `streetName` - 
+         * `houseNumber` - 
+         * `houseNumberAddition` - 
+         * `city` - 
+         * `phone` - 
+         * `netcode` - 
+         * `mobile` - 
+         * `email` - 
+         * `brand` - 
+         * `productGroup` - 
+         * `productNumber` - 
+         * `group` - 
+         * `number` - 
+         * `purchaseDate` - 
+         * `warranty` - 
+         * `complaint` - 
+         * `serialNumber` - 
+         * `purchasePlace` - 
+         * `language` - 
+         * `companyName` - 
+         * `affiliateBrand` - 
+         * `estMaintenanceCode` - 
+         * `estMaintenanceCodeDesc` - 
+         * `realMaintenanceCode` - 
+         * `realMaintenanceCodeDesc` - 
+         * `failureCode` - 
+         * `failureCodeDesc` - 
+         * `dispatchCode` - 
+         * `relation` - 
+         * `relationNumber` - 
+         * `relationName` -
+         * `relationEmail` -
+         * `repairAdvice` -
+         * `repairCause` -
+         * `reference` -
+         * `contractor` -
+         * `contractorAssigned` -
+         * `technicianCompany` -
+         * `confirmed` -
+         * `visitPlanned` -
+         * `customerVisited` -
+         * `customerVisitedCount` -
+         * `customerBilled` -
+         * `paymentMethod` - values : [INVOICE,CARD,CASH,INVOICE_PROXY,PAYMENT_REQUEST,NOT_APPLICABLE]
+         * `additionalCosts` -
+         * `technicianCompanyAssigned` -
+         * `visitStart` -
+         * `visitEnd` -
+         * `repairComplete` -
+         * `repairDuration` -
+         * `producerWorkFee` -
+         * `producerPartsFee` -
+         * `technicianWorkFee` -
+         * `technicianPartsFee` -            
+         * `extraCode` -
+         * `extraCodeTwo` -
+         * `repeatedFrom` -
+         * `warrantyChanged` -
+         * `reservedParts` -
+         * `usedParts` -
+         * `repairDuration` -
+         * `createdBy` -
+         * `created` -
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  orderType:
+                    type: string
+                  status:
+                    type: string
+                  lastName:
+                    type: string
+                  country:
+                    type: string
+                  purchaseDate:
+                    type: string
+                  city:
+                    type: string
+                  purchasePlace:
+                    type: string
+                  companyName:
+                    type: string
+                  houseNumber:
+                    type: string
+                  dispatchCode:
+                    type: string
+                  language:
+                    type: string
+                  estMaintenanceCode:
+                    type: string
+                  affiliateBrand:
+                    type: string
+                  relation:
+                    type: string
+                  repairAdvice:
+                    type: string
+                  reference:
+                    type: array
+                    items:
+                      type: string
+                  streetName:
+                    type: string
+                  netcode:
+                    type: string
+                  warranty:
+                    type: integer
+                  brand:
+                    type: string
+                  email:
+                    type: string
+                  serialNumber:
+                    type: string
+                  failureCode:
+                    type: string
+                  relationEmail:
+                    type: string
+                  mobile:
+                    type: string
+                  productNumber:
+                    type: string
+                  houseNumberAddition:
+                    type: string
+                  zipcode:
+                    type: string
+                  firstName:
+                    type: string
+                  realMaintenanceCode:
+                    type: string
+                  relationName:
+                    type: string
+                  repairCause:
+                    type: string
+                  phone:
+                    type: string
+                  productGroup:
+                    type: string
+                  complaint:
+                    type: string
+                  insertion:
+                    type: string
+                  salutation:
+                    type: integer
+          example:
+            "result": {
+              "id": "inse21112019-7e9c60",
+              "orderType": service,
+              "status": task_cancel,
+              "salutation": 1,
+              "firstName": "I.",
+              "insertion": "",
+              "lastName": "insezo",
+              "country": "NL",
+              "zipcode": "3355pp",
+              "streetName": "Kattestaart",
+              "houseNumber": "10",
+              "houseNumberAddition": "",
+              "city": "Papendrecht",
+              "phone": "",
+              "netcode": "31",
+              "mobile": "612345678",
+              "email": "info@insezo.com",
+              "brand": "Insezo",
+              "productGroup": "Afzuigkap",
+              "productNumber": "AF101",
+              "purchaseDate": "2019-11-01",
+              "warranty": 2,
+              "complaint": "",
+              "serialNumber": "",
+              "purchasePlace": "",
+              "language": "NL",
+              "companyName": "",
+              "affiliateBrand": "",
+              "estMaintenanceCode": "",
+              "realMaintenanceCode": "",
+              "failureCode": "",
+              "dispatchCode": "",
+              "relation": "",
+              "relationName": "",
+              "relationEmail": "",
+              "repairAdvice": "",
+              "repairCause": "",
+              "reference": [
+                ""
+              ]
+            }
+    '400':
+      description: Bad Request
+put:
+  summary: Updates the task with the supplied data
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            orderType:
+              type: string
+              enum: [ service,building,installation,custom,maintenance,exchange ]
+            salutation:
+              type: integer
+              minimum: 1
+              maximum: 4
+              description: mr/mrs, mr, mrs, company
+            language:
+              type: string
+            firstName:
+              type: string
+              maxLength: 35
+            insertion:
+              type: string
+              maxLength: 10
+            lastName:
+              type: string
+              maxLength: 35
+            companyName:
+              type: string
+              maxLength: 60
+            country:
+              type: string
+              minimum: 2
+              maximum: 2
+            city:
+              type: string
+              maxLength: 40
+            zipcode:
+              type: string
+              maxLength: 10
+            streetName:
+              type: string
+              maxLength: 60
+            houseNumber:
+              type: string
+              maxLength: 10
+            email:
+              type: string
+              maxLength: 60
+            mobile:
+              type: string
+              maxLength: 20
+            netcode:
+              type: string
+            phone:
+              type: string
+              maxLength: 20
+            productNumber:
+              type: string
+            purchaseDate:
+              type: string
+              format: date
+            complaint:
+              type: string
+              maxLength: 1500
+            repairAdvice:
+              type: string
+              maxLength: 500
+            relation:
+              type: string
+              format: search number
+            warranty:
+              type: integer
+            reference:
+              type: array
+              items:
+                type: string
+              maxLength: 60
+              maxItems: 4
+        example:
+          { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Fulfilcenter B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              autofill:
+                type: object
+                properties:
+                  productGroup:
+                    type: string
+              status:
+                type: integer
+          example:
+            {
+              "status": 200,
+              "autofill": {
+                "productGroup": "Afzuigkap"
+              }
+            }
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

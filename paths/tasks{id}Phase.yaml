@@ -1,0 +1,27 @@
+put:
+  summary: Set a new task phase
+  description: "Task cannot be finished when assigning a new interim phase"
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            phase:
+              type: string
+              enum: [ wait_for_customer,wait_for_parts,wait_for_producer,wait_for_external_partner,wait_for_payment,payment_accepted ]
+  responses:
+    '204':
+      description: No Content
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

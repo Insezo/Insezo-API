@@ -1,0 +1,31 @@
+post:
+  summary: Finishes the task
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              enum: [ repair_complete,task_cancel,complete_no_parts,send_part_fix ]
+          required:
+            - status
+        example:
+          { "status": "repair_complete" }
+  responses:
+    '200':
+      description: Ok
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

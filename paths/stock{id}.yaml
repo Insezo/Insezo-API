@@ -1,0 +1,57 @@
+get:
+  summary: Returns information about the stock resource
+  description: ""
+  tags:
+    - Stock
+  parameters:
+    - name: stockId
+      required: true
+      in: path
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                properties:
+                  id:
+                    type: int
+                  brand:
+                    type: string
+                  partNumber:
+                    type: string
+                  available:
+                    type: int
+                  purchasePrice:
+                    type: string
+                  salePrice:
+                    type: string
+                  safetyStock:
+                    type: int
+                  maxStock:
+                    type: int
+                  location:
+                    type: string
+                  lastUsed:
+                    type: string
+          example:
+            "result": {
+              "id": 6284,
+              "brand": "Insezo",
+              "partNumber": "563-12345",
+              "available": 0,
+              "purchasePrice": "1.96",
+              "salePrice": "2.92",
+              "safetyStock": 0,
+              "maxStock": 0,
+              "location": "",
+              "lastUsed": "23-10-2018 13:48"
+            }
+    '400':
+      description: Bad Request

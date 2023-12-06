@@ -1,0 +1,37 @@
+post:
+  summary: Link a technician
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            identifier:
+              type: string
+              description: id of technician company
+            communication:
+              type: boolean
+              description: Send communication to customer
+            keepAppointment:
+              type: boolean
+              description: If a appointment already has been made keep the data
+          required:
+            - identifier
+        example:
+          { "identifier": "0123456789","communication": true,"keepAppointment": false }
+  responses:
+    '200':
+      description: Ok
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

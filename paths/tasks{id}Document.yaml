@@ -1,0 +1,27 @@
+post:
+  summary: Uploads a document to the task
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+  responses:
+    '204':
+      description: No Content
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

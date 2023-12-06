@@ -1,0 +1,42 @@
+post:
+  summary: Creates an appointment for visit
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            startDate:
+              type: string
+              description: format 01-01-2021
+            startTime:
+              type: string
+              description: format 09:00
+            endTime:
+              type: string
+              description: format 17:00
+            communication:
+              type: boolean
+              description: Send communication to customer
+          required:
+            - startDate
+            - startTime
+            - endTime
+        example:
+          { "startDate": "07-12-2021","startTime": "10:00","endTime": "12:00","communication": true }
+  responses:
+    '200':
+      description: Ok
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

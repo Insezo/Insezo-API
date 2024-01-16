@@ -14,6 +14,7 @@ get:
          * `id` - 
          * `orderType` - 
          * `status` - 
+         * `contactType` - 
          * `salutation` - 
          * `firstName` - 
          * `insertion` - 
@@ -270,6 +271,9 @@ post:
               minimum: 1
               maximum: 4
               description: mr/mrs, mr, mrs, company
+            contactType:
+              type: string
+              enum: [ phone,reseller,mail,website,api ]
             language:
               type: string
             firstName:

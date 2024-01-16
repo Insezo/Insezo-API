@@ -19,6 +19,7 @@ get:
          * `id` - 
          * `orderType` - 
          * `status` - 
+         * `contactType` - 
          * `salutation` - 
          * `firstName` - 
          * `insertion` - 
@@ -105,6 +106,8 @@ get:
                     type: string
                   status:
                     type: string
+                  contactType:
+                    type: string
                   lastName:
                     type: string
                   country:
@@ -182,6 +185,7 @@ get:
               "id": "inse21112019-7e9c60",
               "orderType": service,
               "status": task_cancel,
+              "contactType": "api",
               "salutation": 1,
               "firstName": "I.",
               "insertion": "",
@@ -247,6 +251,9 @@ put:
               minimum: 1
               maximum: 4
               description: mr/mrs, mr, mrs, company
+            contactType:
+              type: string
+              enum: [ phone,reseller,mail,website,api ]
             language:
               type: string
             firstName:

@@ -58,6 +58,8 @@ paths:
     $ref: "./paths/tasks.yaml"
   /tasks/free:
     $ref: "./paths/tasksFree.yaml"
+  /tasks/combi:
+    $ref: "./paths/tasksCombi.yaml"
   /tasks/{taskNumber}/phase:
     $ref: "./paths/tasks{id}Phase.yaml"
   /tasks/{taskNumber}/document:

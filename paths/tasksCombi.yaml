@@ -1,0 +1,144 @@
+post:
+  summary: Creates a new task with many products
+  description: ""
+  tags:
+    - Tasks
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            orderType:
+              type: string
+              enum: [ service,building,custom,installation,basic ]
+              default: service
+            salutation:
+              type: integer
+              minimum: 1
+              maximum: 4
+              description: mr/mrs, mr, mrs, company
+            language:
+              type: string
+            firstName:
+              type: string
+              maxLength: 35
+            insertion:
+              type: string
+              maxLength: 10
+            lastName:
+              type: string
+              maxLength: 35
+            companyName:
+              type: string
+              maxLength: 60
+            country:
+              type: string
+              minimum: 2
+              maximum: 2
+            city:
+              type: string
+              maxLength: 40
+            zipcode:
+              type: string
+              maxLength: 10
+            streetName:
+              type: string
+              maxLength: 60
+            houseNumber:
+              type: string
+              maxLength: 10
+            email:
+              type: string
+              maxLength: 60
+            mobile:
+              type: string
+              maxLength: 20
+            netcode:
+              type: string
+            phone:
+              type: string
+              maxLength: 20
+            brand:
+              type: string
+              maxLength: 40
+            products:
+              type: array
+              minItems: 1
+              uniqueItems: true
+              items:
+                required:
+                  - productNumber
+                type: object
+                properties:
+                  productNumber:
+                    type: string
+                  estMaintenanceCode:
+                    type: string
+                  serialNumber:
+                    type: string
+              maxItems: 10
+            purchaseDate:
+              type: string
+              format: date
+            complaint:
+              type: string
+              maxLength: 1500
+            repairAdvice:
+              type: string
+              maxLength: 500
+            warranty:
+              type: integer
+            relation:
+              type: string
+              format: search number
+            reference:
+              type: array
+              items:
+                type: string
+              maxLength: 60
+              maxItems: 4
+            reservedParts:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  amount:
+                    type: integer
+              maxItems: 20
+          required:
+            - salutation
+            - country
+            - zipcode
+            - streetName
+            - houseNumber
+            - city
+            - products
+        example:
+          { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","brand": "Insezo","products":[{productNumber: "AF101","serialNumber":"s123"},{productNumber: "AF102","serialNumber":"R123"}],"purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              redirectUrl:
+                type: string
+              id:
+                type: string
+              status:
+                type: integer
+          example:
+            {
+              "status": 201,
+              "id": "inse21112019-d5e617",
+              "redirectUrl": "https:\/\/app.insezo.com\/tasks\/overview?p=inse21112019-d5e617",
+            }
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

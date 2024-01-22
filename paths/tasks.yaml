@@ -327,6 +327,8 @@ post:
               type: string
             productNumber:
               type: string
+            serialNumber:
+              type: string
             purchaseDate:
               type: string
               format: date
@@ -347,6 +349,16 @@ post:
                 type: string
               maxLength: 60
               maxItems: 4
+            reservedParts:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  amount:
+                    type: integer
+              maxItems: 20
           required:
             - salutation
             - country

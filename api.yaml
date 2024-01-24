@@ -88,6 +88,12 @@ paths:
             type: integer
           required: false
           description: Page with the amount of returned item
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: false
+          description: searches for product based on query parameter. Searches only in productNumber
       description: ""
       tags:
         - Products
@@ -113,6 +119,8 @@ paths:
                         type: string
                       productDescription:
                         type: string
+                      remark:
+                        type: string
               example:
                 {
                   "result": {
@@ -123,14 +131,17 @@ paths:
                         "companyId": 7378787652899,
                         "productNumber": "18/15",
                         "productGroup": "afzuigkap",
-                        "productDescription": "Twist wandschouw"
+                        "productDescription": "Twist wandschouw",
+                        "remark": "Can't sell directly",
+
                       },
                       {
                         "productId": 10000351,
                         "companyId": 7378787652899,
                         "productNumber": "16/15",
                         "productGroup": "afzuigkap",
-                        "productDescription": "Salsa wandschouw"
+                        "productDescription": "Salsa wandschouw",
+                        "remark": "",
                       }
                     ]
                   }
@@ -218,6 +229,8 @@ paths:
                     type: string
                   productDescription:
                     type: string
+                  remark:
+                    type: string
               example:
                 {
                   "result": {
@@ -225,7 +238,8 @@ paths:
                     "companyId": 7378787652899,
                     "productNumber": "18/15",
                     "productGroup": "afzuigkap",
-                    "productDescription": "Twist wandschouw"
+                    "productDescription": "Twist wandschouw",
+                    "remark":""
                   }
                 }
   /products/{productId}/parts:

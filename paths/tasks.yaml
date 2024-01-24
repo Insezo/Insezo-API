@@ -358,7 +358,7 @@ post:
                     type: string
                   amount:
                     type: integer
-              maxItems: 20
+              maxItems: 40
           required:
             - salutation
             - country

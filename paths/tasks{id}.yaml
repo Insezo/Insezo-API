@@ -85,6 +85,7 @@ get:
          * `repeatedFrom` -
          * `warrantyChanged` -
          * `reservedParts` -
+         * `links` -
          * `usedParts` -
          * `repairDuration` -
          * `createdBy` -

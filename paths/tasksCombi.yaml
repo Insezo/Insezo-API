@@ -108,6 +108,16 @@ post:
                   amount:
                     type: integer
               maxItems: 40
+            links:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  url:
+                    type: string
+              maxItems: 5
           required:
             - salutation
             - country

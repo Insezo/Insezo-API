@@ -1045,6 +1045,9 @@ paths:
                 houseNumber:
                   type: string
                   maxLength: 10
+                houseNumberAddition:
+                  type: string
+                  maxLength: 10
                 email:
                   type: string
                   maxLength: 60
@@ -1054,14 +1057,10 @@ paths:
                   type: string
                 phone:
                   type: string
-                productGroup:
+                brand:
                   type: string
-                productNumber:
-                  type: string
-                purchaseDate:
-                  type: string
-                  format: date
-                purchasePlace:
+                  maxLength: 40
+                store:
                   type: string
                   maxLength: 40
                 language:
@@ -1078,15 +1077,30 @@ paths:
                 affiliateBrand:
                   type: string
                   maxLength: 20
+                articles:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      brand:
+                        type: integer
+                      article:
+                        type: string
+                      amount:
+                        type: integer
               required:
                 - salutation
+                - lastName
                 - country
                 - zipcode
                 - streetName
                 - houseNumber
                 - city
+                - store
+                - brand
+                - articles
             example:
-              { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","remark": "Box is damaged","reference": [ "one","two" ] }
+              { "salutation": 2, "firstName": "roel", "insertion": "", "lastName": "aarnoudse", "companyName": "Insezo B.V.", "country": "NL", "language": "nl", "zipcode": "3355pp", "houseNumber": "10", "streetName": "Kattestaart", "city": "papendrecht", "phone": "0786154678", "brand": "Inbeba Production", "store": "Inbeba", "netcode": "31", "mobile": "612345678", "email": "info@insezo.com", "remark": "Box is damaged", "reference": [ "one", "two" ], "articles": [ { "brand": 7386787652838, "article": 11277, "amount": 3 } ] }
       responses:
         '201':
           description: Created

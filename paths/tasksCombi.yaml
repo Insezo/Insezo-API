@@ -59,6 +59,9 @@ post:
             phone:
               type: string
               maxLength: 20
+            contractor:
+              type: integer
+              description: consult "/me/servicepartners" endpoint for allowed contractors
             brand:
               type: string
               maxLength: 40

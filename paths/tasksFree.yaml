@@ -88,6 +88,9 @@ post:
                 type: string
               maxLength: 60
               maxItems: 4
+            externalId:
+              type: string
+              maxLength: 60
           required:
             - salutation
             - country

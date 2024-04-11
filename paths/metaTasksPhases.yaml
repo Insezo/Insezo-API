@@ -1,0 +1,126 @@
+get:
+  summary: Returns information about the meta
+  description: ""
+  tags:
+    - Meta
+  parameters:
+    - in: query
+      name: selection
+      schema:
+        type: string
+      required: false
+      description: >
+        Possible fields:
+         * `lang` - follow ISO 3166-1 alpha-2 (e.g : nl, de, be,)
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                properties:
+                  confirm_task:
+                    type: string
+                  interim_status:
+                    type: string
+                  link_technician:
+                    type: string
+                  plan_visit:
+                    type: string
+                  upcoming_visit:
+                    type: string
+                  wait_for_part:
+                    type: string
+                  not_home:
+                    type: string
+                  incoming_parts:
+                    type: string
+                  wait_for_customer:
+                    type: string
+                  repair_complete_no_fix:
+                    type: string
+                  complete_no_parts:
+                    type: string
+                  solved_by_phone:
+                    type: string
+                  send_document_fix:
+                    type: string
+                  task_cancel:
+                    type: string
+                  send_part_fix:
+                    type: string
+                  repair_complete:
+                    type: string
+                  no_response_appointment:
+                    type: string
+                  not_owned:
+                    type: string
+                  no_response_confirm_task:
+                    type: string
+                  complete_made_report:
+                    type: string
+                  task_history_complete:
+                    type: string
+                  retour_order:
+                    type: string
+                  new_product_send:
+                    type: string
+                  custom_wizard_complete:
+                    type: string
+                  wait_for_producer:
+                    type: string
+                  wizard_measuring_complete:
+                    type: string
+                  fix_external_partners:
+                    type: string
+                  wait_for_external_partner:
+                    type: string
+                  retour_received:
+                    type: string
+                  wizard_montage_fix:
+                    type: string
+                  cancel_by_technician:
+                    type: string
+                  wait_for_technician:
+                    type: string
+          example:
+            "result": {
+              "confirm_task": "Confirm task",
+              "interim_status": "Interim status",
+              "link_technician": "Assign technician",
+              "plan_visit": "Plan visit",
+              "upcoming_visit": "Planned visit",
+              "wait_for_part": "Waiting for parts",
+              "not_home": "Customer wasn't home",
+              "incoming_parts": "Parts are sent",
+              "wait_for_customer": "Waiting for customer contact",
+              "repair_complete_no_fix": "Finished repair not done",
+              "complete_no_parts": "Finished without parts",
+              "solved_by_phone": "Solved by telephone",
+              "send_document_fix": "Solved by sending document",
+              "task_cancel": "Cancelled",
+              "send_part_fix": "Solved by sending part",
+              "repair_complete": "Finished repair",
+              "no_response_appointment": "Customer didn't answer (plan visit)",
+              "not_owned": "Finished no owner",
+              "no_response_confirm_task": "Customer didn't answer (confirm task)",
+              "complete_made_report": "Created finished report",
+              "task_history_complete": "History loaded",
+              "retour_order": "Returns incoming",
+              "new_product_send": "New product send",
+              "custom_wizard_complete": "Custom task finished",
+              "wait_for_producer": "Waiting for producer",
+              "wizard_measuring_complete": "Measuring task",
+              "fix_external_partners": "Completed by external partner",
+              "wait_for_external_partner": "Waiting for external partner",
+              "retour_received": "Return received",
+              "wizard_montage_fix": "assembly completed",
+              "cancel_by_technician": "canceled by technician",
+              "wait_for_technician": "Waiting for technician"
+            }
+    '400':
+      description: Bad Request

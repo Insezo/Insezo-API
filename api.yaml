@@ -2145,7 +2145,6 @@ paths:
             description: Ok
           '400':
             description: Error deleting
-
   /meta/tasks/phases:
     $ref: "./paths/metatasksphases.yaml"
 components:

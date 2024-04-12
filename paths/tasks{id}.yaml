@@ -86,7 +86,7 @@ get:
          * `links` - document links attached to this task
          * `usedParts` - the parts used during the repair
          * `repairDuration` - the duration of the repair
-         * `externalId` -
+         * `externalId` - the external id
          * `createdBy` - who the task was created by
          * `created` - when this task was created, datetime
   responses:

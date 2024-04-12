@@ -11,7 +11,7 @@ get:
       required: false
       description: >
         Possible fields:
-         * `lang` - follow ISO 3166-1 alpha-2 (e.g : nl, de, be,)
+         * `language` - follow ISO 3166-1 alpha-2 (e.g : nl, de, be, gb)
   responses:
     '200':
       description: Ok

@@ -2043,6 +2043,12 @@ paths:
       description: ""
       tags:
         - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
       responses:
           '200':
             description: Ok
@@ -2083,6 +2089,12 @@ paths:
       description: ""
       tags:
         - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2122,6 +2134,12 @@ paths:
       description: ""
       tags:
         - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
       responses:
           '200':
             description: Ok

@@ -59,6 +59,9 @@ post:
             phone:
               type: string
               maxLength: 20
+            contractor:
+              type: integer
+              description: consult "/me/servicepartners" endpoint for allowed contractors
             brand:
               type: string
               maxLength: 40
@@ -98,6 +101,9 @@ post:
                 type: string
               maxLength: 60
               maxItems: 4
+            externalId:
+              type: string
+              maxLength: 60
             reservedParts:
               type: array
               items:
@@ -127,7 +133,7 @@ post:
             - city
             - products
         example:
-          { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","brand": "Insezo","products":[{productNumber: "AF101","serialNumber":"s123"},{productNumber: "AF102","serialNumber":"R123"}],"purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
+          { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","brand": "Insezo","products": [ { productNumber: "AF101","serialNumber": "s123" },{ productNumber: "AF102","serialNumber": "R123" } ],"purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
   responses:
     '201':
       description: Created

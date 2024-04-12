@@ -86,6 +86,7 @@ get:
          * `links` - document links attached to this task
          * `usedParts` - the parts used during the repair
          * `repairDuration` - the duration of the repair
+         * `externalId` -
          * `createdBy` - who the task was created by
          * `created` - when this task was created, datetime
   responses:
@@ -316,6 +317,9 @@ put:
                 type: string
               maxLength: 60
               maxItems: 4
+            externalId:
+              type: string
+              maxLength: 60
         example:
           { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Fulfilcenter B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
   responses:

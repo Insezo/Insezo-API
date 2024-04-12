@@ -1,6 +1,6 @@
 get:
   summary: Returns many task records
-  description: ""
+  description: "Default filter on current year, from jan until current month, see parameters for filter possibilities"
   tags:
     - Tasks
   parameters:

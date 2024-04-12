@@ -2146,7 +2146,7 @@ paths:
           '400':
             description: Error deleting
   /meta/tasks/phases:
-    $ref: "./paths/metatasksphases.yaml"
+    $ref: "./paths/metaTasksPhases.yaml"
 components:
   securitySchemes:
     bearerAuth:

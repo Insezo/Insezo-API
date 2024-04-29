@@ -16,81 +16,79 @@ get:
       required: false
       description: >
         Possible fields:
-         * `id` - 
-         * `orderType` - 
-         * `status` - 
-         * `contactType` - 
-         * `salutation` - 
-         * `firstName` - 
-         * `insertion` - 
-         * `lastName` - 
-         * `country` - 
-         * `zipcode` - 
-         * `streetName` - 
-         * `houseNumber` - 
-         * `houseNumberAddition` - 
-         * `city` - 
-         * `phone` - 
-         * `netcode` - 
-         * `mobile` - 
-         * `email` - 
-         * `brand` - 
-         * `productGroup` - 
-         * `productNumber` - 
-         * `group` - 
-         * `number` - 
-         * `purchaseDate` - 
-         * `warranty` - 
-         * `complaint` - 
-         * `serialNumber` - 
-         * `purchasePlace` - 
-         * `language` - 
-         * `companyName` - 
-         * `affiliateBrand` - 
-         * `estMaintenanceCode` - 
-         * `estMaintenanceCodeDesc` - 
-         * `realMaintenanceCode` - 
-         * `realMaintenanceCodeDesc` - 
-         * `failureCode` - 
-         * `failureCodeDesc` - 
-         * `dispatchCode` - 
-         * `relation` - 
-         * `relationNumber` - 
-         * `relationName` -
-         * `relationEmail` -
-         * `repairAdvice` -
-         * `repairCause` -
-         * `reference` -
-         * `contractor` -
-         * `contractorAssigned` -
-         * `technicianCompany` -
-         * `confirmed` -
-         * `visitPlanned` -
-         * `customerVisited` -
-         * `customerVisitedCount` -
-         * `customerBilled` -
+         * `id` - the tasks id
+         * `orderType` - the type of task, values : [ service,building,installation,custom,maintenance,exchange ]
+         * `status` - status of the task
+         * `contactType` - how the customer wishes to be contacted, values : [ phone,reseller,mail,website,api ]
+         * `salutation` - how the customer wishes to be addressed, values : [ mr/mrs, mr, mrs, company ]
+         * `firstName` - firstname of the customer
+         * `insertion` - insertion of the customer
+         * `lastName` - lastname of the customer
+         * `country` - follow ISO 3166-1 alpha-2 in capital letters (e.g : NL, DE, BE, GB)
+         * `zipcode` - zipcode of the customer
+         * `streetName` - street name of the customer
+         * `houseNumber` - house number of the customer
+         * `houseNumberAddition` - house number addition (this is used when apartments are involved)
+         * `city` - city of the customer
+         * `phone` - phone number of the customer
+         * `netcode` - netcode of the customer
+         * `mobile` - mobile phone number of the customer
+         * `email` - email of the customer
+         * `brand` - the brand
+         * `productGroup` - the group where the product belongs to
+         * `productNumber` - number to indicate which product it is
+         * `purchaseDate` - the date for when the product was purchased
+         * `warranty` - the warranty
+         * `complaint` - the customers complaint
+         * `serialNumber` - the serial number of the product
+         * `purchasePlace` - the place the product was purchased at
+         * `language` - follow ISO 3166-1 alpha-2 (e.g : nl, de, be, gb)
+         * `companyName` - the name of the company
+         * `affiliateBrand` - the brand affiliated
+         * `estMaintenanceCode` - estimated maintenance code
+         * `estMaintenanceCodeDesc` - estimated maintenance code description
+         * `realMaintenanceCode` - the real maintenance codee
+         * `realMaintenanceCodeDesc` - the real maintenance code description
+         * `failureCode` - the code it gave when it failed
+         * `failureCodeDesc` - the description of the failure code
+         * `dispatchCode` - the code of the dispatch
+         * `relation` - the relation code
+         * `relationNumber` - the phone number of the relation
+         * `relationName` - the name of the relation
+         * `relationEmail` - the email of the relation
+         * `repairAdvice` - advice for the repair
+         * `repairCause` - repair code
+         * `reference` - the tasks references
+         * `contractor` - the intermediary contractor
+         * `contractorAssigned` - the assigned contractor
+         * `technicianCompany` - the intermediary technician company
+         * `confirmed` - the date of when the task was confirmed
+         * `visitPlanned` - the planned visit date
+         * `customerVisited` - date and time for when the customer was visited
+         * `customerVisitedCount` - how many times the customer was visited
+         * `customerBilled` - how much the customer was billed
          * `paymentMethod` - values : [INVOICE,CARD,CASH,INVOICE_PROXY,PAYMENT_REQUEST,NOT_APPLICABLE]
-         * `additionalCosts` -
-         * `technicianCompanyAssigned` -
-         * `visitStart` -
-         * `visitEnd` -
-         * `repairComplete` -
-         * `repairDuration` -
-         * `producerWorkFee` -
-         * `producerPartsFee` -
-         * `technicianWorkFee` -
-         * `technicianPartsFee` -            
-         * `extraCode` -
-         * `extraCodeTwo` -
-         * `repeatedFrom` -
-         * `warrantyChanged` -
-         * `reservedParts` -
-         * `links` -
-         * `usedParts` -
-         * `repairDuration` -
-         * `externalId` -
-         * `createdBy` -
-         * `created` -
+         * `additionalCosts` - additional costs
+         * `technicianCompanyAssigned` - the technician company assigned to this task
+         * `visitStart` - the planned visit start, datetime
+         * `visitEnd` - the planned visit end, datetime
+         * `repairComplete` - the date of when it was completed
+         * `repairDuration` - the duration of the repair
+         * `producerWorkFee` - the fee from the producer for their work
+         * `producerPartsFee` - the fee from the producer for their parts
+         * `technicianWorkFee` - the fee from the technician for their work
+         * `technicianPartsFee` - the fee from the technician for their parts
+         * `extraCode` - an extra code
+         * `extraCodeTwo` - a second extra code
+         * `repeatedFrom` - the task it is a repeat from
+         * `warrantyChanged` - has the warranty changed
+         * `reservedParts` - parts reserved for this task
+         * `links` - document links attached to this task
+         * `usedParts` - the parts used during the repair
+         * `repairDuration` - the duration of the repair
+         * `externalId` - the external id
+         * `createdBy` - who the task was created by
+         * `created` - when this task was created, datetime
   responses:
     '200':
       description: Ok

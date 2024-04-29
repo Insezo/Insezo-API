@@ -51,6 +51,10 @@ tags:
     description: Everything about reviews for tasks
   - name: Me
     description: Information about company account
+  - name: Webhooks
+    description: Information about Webhooks
+  - name: Meta
+    description: Information about Meta
 paths:
   /tasks/{taskNumber}:
     $ref: "./paths/tasks{id}.yaml"
@@ -1927,6 +1931,222 @@ paths:
                     }
                   ]
                 }
+  /webhooks:
+    get:
+      summary: Returns all affiliate webhooks
+      description: ""
+      tags:
+        - Webhooks
+      responses:
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: integer
+                      name:
+                        type: string
+                      type:
+                        type: integer
+                      deliveryUrl:
+                        type: string
+                      creation:
+                        type: string
+                example:
+                  {
+                    "result": [
+                      {
+                        "key": 23,
+                        "name": "Inseza",
+                        "type": 2,
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "creation": "2024-04-10 16:13:32"
+                      },
+                      { "key": 14,
+                        "name": "Inseba",
+                        "type": 1,
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "creation": "2024-03-11 13:40:57"
+                      }
+                    ]
+                  }
+    post:
+      summary: Creates a new webhook
+      description: ""
+      tags:
+        - Webhooks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  maxLength: 40
+                  description: "Name must be unique"
+                  required: true
+                type:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                  description: create, update-phase, update-data, finish
+                  required: true
+                deliveryUrl:
+                  type: string
+                  maxLength: 2083
+                  required: true
+                secretKey:
+                  type: string
+                  maxLength: 32
+                  required: false
+              required:
+                - name
+                - type
+                - deliveryUrl
+            example:
+              { "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  autofill:
+                    type: object
+                    properties:
+                      secretKey:
+                        type: string
+                  status:
+                    type: integer
+              example:
+                {
+                  "status": 201,
+                  "autofill": {
+                    "secreKey": "JFhndfud7rfgGYUs8790wdfJkdfI8054",
+                  }
+                }
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+  /webhooks/{webhookId}:
+    get:
+      summary: Returns information about the webhook
+      description: ""
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: integer
+                      name:
+                        type: string
+                      type:
+                        type: integer
+                      deliveryUrl:
+                        type: string
+                      active:
+                        type: boolean
+                      creation:
+                        type: string
+                example:
+                  {
+                    "result": [
+                      {
+                        "key": 27,
+                        "name": "Inseza",
+                        "type": 4,
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "active": 1,
+                        "creation": "2024-04-10 14:13:32"
+                      }
+                    ]
+                  }
+    put:
+      summary: Updates information about the webhook
+      description: ""
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                companyCode:
+                  type: integer
+                name:
+                  type: string
+                  maxLength: 40
+                  description: Name must be unique
+                type:
+                  type: integer
+                  minimum: 1
+                  maximum: 4
+                  description: create, update-phase, update-data, finish
+                deliveryUrl:
+                  type: string
+                  maxLength: 2083
+                active:
+                  type: boolean
+                secretKey:
+                  type: string
+                  maxLength: 32
+            example:
+              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+      responses:
+          '200':
+            description: Ok
+          '400':
+            description: Bad Request
+          '500':
+            description: Internal Server Error
+    delete:
+      summary: Deletes the webhook
+      description: ""
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+          '200':
+            description: Ok
+          '400':
+            description: Error deleting
+  /meta/tasks/phases:
+    $ref: "./paths/metaTasksPhases.yaml"
 components:
   securitySchemes:
     bearerAuth:

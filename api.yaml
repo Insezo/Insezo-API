@@ -1081,7 +1081,7 @@ paths:
                     properties:
                       brand:
                         type: integer
-                      article:
+                      partNumber:
                         type: string
                       amount:
                         type: integer

@@ -341,6 +341,9 @@ post:
             relation:
               type: string
               format: search number
+            externalId:
+              type: string
+              maxLength: 60
             reference:
               type: array
               items:

@@ -243,7 +243,7 @@ paths:
                     "productNumber": "18/15",
                     "productGroup": "afzuigkap",
                     "productDescription": "Twist wandschouw",
-                    "remark":""
+                    "remark": ""
                   }
                 }
   /products/{productId}/parts:
@@ -1085,7 +1085,7 @@ paths:
                     properties:
                       brand:
                         type: integer
-                      article:
+                      partNumber:
                         type: string
                       amount:
                         type: integer
@@ -2023,7 +2023,7 @@ paths:
                       secretKey:
                         type: string
                   status:
-                    type: string
+                    type: integer
               example:
                 {
                   "status": 201,
@@ -2119,12 +2119,12 @@ paths:
             example:
               { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
-          '200':
-            description: Ok
-          '400':
-            description: Bad Request
-          '500':
-            description: Internal Server Error
+        '200':
+          description: Ok
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
     delete:
       summary: Deletes the webhook
       description: ""
@@ -2137,10 +2137,10 @@ paths:
           schema:
             type: string
       responses:
-          '200':
-            description: Ok
-          '400':
-            description: Error deleting
+        '200':
+          description: Ok
+        '400':
+          description: Error deleting
   /meta/tasks/phases:
     $ref: "./paths/metaTasksPhases.yaml"
 components:

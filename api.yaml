@@ -1953,6 +1953,7 @@ paths:
                         type: string
                       type:
                         type: string
+                        enum: [ create, update-phase, update-data, finish ]
                       deliveryUrl:
                         type: string
                       creation:
@@ -2063,6 +2064,7 @@ paths:
                         type: string
                       type:
                         type: string
+                        enum: [ create, update-phase, update-data, finish ]
                       deliveryUrl:
                         type: string
                       active:

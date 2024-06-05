@@ -1952,7 +1952,7 @@ paths:
                       name:
                         type: string
                       type:
-                        type: integer
+                        type: string
                       deliveryUrl:
                         type: string
                       creation:
@@ -1963,13 +1963,13 @@ paths:
                       {
                         "key": 23,
                         "name": "Inseza",
-                        "type": 2,
+                        "type": "update-phase",
                         "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
                         "creation": "2024-04-10 16:13:32"
                       },
                       { "key": 14,
                         "name": "Inseba",
-                        "type": 1,
+                        "type": "create",
                         "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
                         "creation": "2024-03-11 13:40:57"
                       }
@@ -1992,10 +1992,8 @@ paths:
                   description: "Name must be unique"
                   required: true
                 type:
-                  type: integer
-                  minimum: 1
-                  maximum: 4
-                  description: create, update-phase, update-data, finish
+                  type: string
+                  enum: [ create, update-phase, update-data, finish ]
                   required: true
                 deliveryUrl:
                   type: string
@@ -2010,7 +2008,7 @@ paths:
                 - type
                 - deliveryUrl
             example:
-              { "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+              { "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
         '201':
           description: Created
@@ -2025,7 +2023,7 @@ paths:
                       secretKey:
                         type: string
                   status:
-                    type: integer
+                    type: string
               example:
                 {
                   "status": 201,
@@ -2064,7 +2062,7 @@ paths:
                       name:
                         type: string
                       type:
-                        type: integer
+                        type: string
                       deliveryUrl:
                         type: string
                       active:
@@ -2077,7 +2075,7 @@ paths:
                       {
                         "key": 27,
                         "name": "Inseza",
-                        "type": 4,
+                        "type": "finish",
                         "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
                         "active": 1,
                         "creation": "2024-04-10 14:13:32"
@@ -2108,10 +2106,8 @@ paths:
                   maxLength: 40
                   description: Name must be unique
                 type:
-                  type: integer
-                  minimum: 1
-                  maximum: 4
-                  description: create, update-phase, update-data, finish
+                  type: string
+                  enum: [ create, update-phase, update-data, finish ]
                 deliveryUrl:
                   type: string
                   maxLength: 2083
@@ -2121,7 +2117,7 @@ paths:
                   type: string
                   maxLength: 32
             example:
-              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
           '200':
             description: Ok

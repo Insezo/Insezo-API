@@ -98,6 +98,12 @@ paths:
             type: string
           required: false
           description: searches for product based on query parameter. Searches only in productNumber
+        - in: query
+          name: partnerBrand
+          schema:
+            type: integer
+          required: false
+          description: Id of brand company. Allows to fetch products as service partner for brand
       description: ""
       tags:
         - Products
@@ -152,6 +158,13 @@ paths:
                 }
     post:
       summary: Creates a new product with the supplied data
+      parameters:
+        - in: query
+          name: partnerBrand
+          schema:
+            type: integer
+          required: false
+          description: Id of brand company. Allows to create product as service partner for brand
       description: ""
       tags:
         - Products

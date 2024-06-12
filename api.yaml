@@ -1951,44 +1951,44 @@ paths:
       tags:
         - Webhooks
       responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    key:
-                      type: integer
-                    name:
-                      type: string
-                    type:
-                      type: string
-                      enum: [ create, update-phase, update-data, finish ]
-                    deliveryUrl:
-                      type: string
-                    creation:
-                      type: string
-              example:
-                {
-                  "result": [
-                    {
-                      "key": 23,
-                      "name": "Inseza",
-                      "type": 2,
-                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                      "creation": "2024-04-10 16:13:32"
-                    },
-                    { "key": 14,
-                      "name": "Inseba",
-                      "type": 1,
-                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                      "creation": "2024-03-11 13:40:57"
-                    }
-                  ]
-                }
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: integer
+                      name:
+                        type: string
+                      type:
+                        type: string
+                        enum: [ create, update-phase, update-data, finish ]
+                      deliveryUrl:
+                        type: string
+                      creation:
+                        type: string
+                example:
+                  {
+                    "result": [
+                      {
+                        "key": 23,
+                        "name": "Inseza",
+                        "type": "update-phase",
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "creation": "2024-04-10 16:13:32"
+                      },
+                      { "key": 14,
+                        "name": "Inseba",
+                        "type": "create",
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "creation": "2024-03-11 13:40:57"
+                      }
+                    ]
+                  }
     post:
       summary: Creates a new webhook
       description: ""
@@ -2022,7 +2022,7 @@ paths:
                 - type
                 - deliveryUrl
             example:
-              { "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+              { "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
         '201':
           description: Created
@@ -2062,41 +2062,41 @@ paths:
           schema:
             type: string
       responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    key:
-                      type: integer
-                    name:
-                      type: string
-                    type:
-                      type: string
-                      enum: [ create, update-phase, update-data, finish ]
-                    deliveryUrl:
-                      type: string
-                    active:
-                      type: boolean
-                    creation:
-                      type: string
-              example:
-                {
-                  "result": [
-                    {
-                      "key": 27,
-                      "name": "Inseza",
-                      "type": finish,
-                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                      "active": 1,
-                      "creation": "2024-04-10 14:13:32"
-                    }
-                  ]
-                }
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: integer
+                      name:
+                        type: string
+                      type:
+                        type: string
+                        enum: [ create, update-phase, update-data, finish ]
+                      deliveryUrl:
+                        type: string
+                      active:
+                        type: boolean
+                      creation:
+                        type: string
+                example:
+                  {
+                    "result": [
+                      {
+                        "key": 27,
+                        "name": "Inseza",
+                        "type": "finish",
+                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                        "active": 1,
+                        "creation": "2024-04-10 14:13:32"
+                      }
+                    ]
+                  }
     put:
       summary: Updates information about the webhook
       description: ""
@@ -2132,7 +2132,7 @@ paths:
                   type: string
                   maxLength: 32
             example:
-              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": 2, "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
         '200':
           description: Ok

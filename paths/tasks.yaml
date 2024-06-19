@@ -80,6 +80,7 @@ get:
          * `producerPartsFee` - the fee from the producer for their parts
          * `technicianWorkFee` - the fee from the technician for their work
          * `technicianPartsFee` - the fee from the technician for their parts
+         * `productCombinations` - multiple products for task
          * `createdBy` - who the task was created by
          * `created` - when this task was created, datetime
     - in: query
@@ -160,6 +161,19 @@ get:
                     type: array
                     items:
                       type: string
+                  productCombinations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productGroup:
+                          type: string
+                        productNumber:
+                          type: string
+                        serialNumber:
+                          type: string
+                        estMaintenanceCode:
+                          type: string
                   streetName:
                     type: string
                   netcode:

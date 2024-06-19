@@ -83,6 +83,7 @@ get:
          * `repeatedFrom` - the task it is a repeat from
          * `warrantyChanged` - has the warranty changed
          * `reservedParts` - parts reserved for this task
+         * `productCombinations` - multiple products for task
          * `links` - document links attached to this task
          * `usedParts` - the parts used during the repair
          * `repairDuration` - the duration of the repair
@@ -138,6 +139,19 @@ get:
                     type: array
                     items:
                       type: string
+                  productCombinations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productGroup:
+                          type: string
+                        productNumber:
+                          type: string
+                        serialNumber:
+                          type: string
+                        estMaintenanceCode:
+                          type: string
                   streetName:
                     type: string
                   netcode:

@@ -2114,8 +2114,6 @@ paths:
             schema:
               type: object
               properties:
-                companyCode:
-                  type: integer
                 name:
                   type: string
                   maxLength: 40
@@ -2132,7 +2130,7 @@ paths:
                   type: string
                   maxLength: 32
             example:
-              { "companyCode": 7378787652899, "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
+              { "name": "Webhook naar home pagina", "type": "update-phase", "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test" }
       responses:
         '200':
           description: Ok

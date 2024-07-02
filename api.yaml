@@ -2143,6 +2143,75 @@ paths:
           description: Ok
         '400':
           description: Error deleting
+  /webhooks/{webhookId}/logs:
+    get:
+      summary: Returns all logs of given webhook
+      description: ""
+      tags:
+        - Webhooks
+      parameters:
+        - name: webhookId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    taskId:
+                      type: string
+                    eventId:
+                      type: integer
+                    statusCode:
+                      type: integer
+                    created:
+                      type: string
+                    finished:
+                      type: string
+              example:
+                {
+                  "count": 3,
+                  "start": 26,
+                  "result": [
+                    {
+                      "id": 26,
+                      "taskId": "nvnl01072024-c8309c",
+                      "eventId": 1,
+                      "statusCode": 401,
+                      "created": "2024-07-01 14:49:28",
+                      "finished": "2024-07-01 14:49:29"
+                    },
+                    {
+                      "id": 27,
+                      "taskId": "nvnl01072024-76bbea",
+                      "eventId": 1,
+                      "statusCode": 401,
+                      "created": "2024-07-01 14:50:02",
+                      "finished": "2024-07-01 14:50:02"
+                    },
+                    {
+                      "id": 28,
+                      "taskId": "nvnl01072024-4c2fd0",
+                      "eventId": 1,
+                      "statusCode": 401,
+                      "created": "2024-07-01 14:50:02",
+                      "finished": "2024-07-01 14:50:02"
+                    },
+                  ]
+                }
+        '400':
+          description: Bad request
+        '422':
+          description: unprocessable entity
   /meta/tasks/phases:
     $ref: "./paths/metaTasksPhases.yaml"
 components:

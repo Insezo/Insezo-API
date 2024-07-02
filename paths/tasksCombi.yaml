@@ -132,6 +132,7 @@ post:
             - houseNumber
             - city
             - products
+            - purchaseDate
         example:
           { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","brand": "Insezo","products": [ { productNumber: "AF101","serialNumber": "s123" },{ productNumber: "AF102","serialNumber": "R123" } ],"purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
   responses:

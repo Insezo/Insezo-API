@@ -80,6 +80,7 @@ get:
          * `producerPartsFee` - the fee from the producer for their parts
          * `technicianWorkFee` - the fee from the technician for their work
          * `technicianPartsFee` - the fee from the technician for their parts
+         * `productCombinations` - multiple products for task
          * `createdBy` - who the task was created by
          * `created` - when this task was created, datetime
     - in: query
@@ -160,6 +161,19 @@ get:
                     type: array
                     items:
                       type: string
+                  productCombinations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productGroup:
+                          type: string
+                        productNumber:
+                          type: string
+                        serialNumber:
+                          type: string
+                        estMaintenanceCode:
+                          type: string
                   streetName:
                     type: string
                   netcode:
@@ -321,8 +335,6 @@ post:
             affiliateBrand:
               type: string
               description: consult "/me/affiliatebrands" endpoint for affiliated brands
-            productGroup:
-              type: string
             productNumber:
               type: string
             serialNumber:
@@ -376,6 +388,7 @@ post:
             - streetName
             - houseNumber
             - city
+            - purchaseDate
         example:
           { "salutation": 2,"firstName": "roel","insertion": "","lastName": "aarnoudse","companyName": "Insezo B.V.","country": "nl","language": "nl","zipcode": "3355pp","houseNumber": "10","streetName": "Kattestaart","city": "papendrecht","phone": "0786154678","netcode": "31","mobile": "612345678","email": "info@insezo.com","productNumber": "AF101","purchaseDate": "1-1-2013","warranty": 3,"complaint": "accio","reference": [ "one","two" ] }
   responses:

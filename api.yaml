@@ -2180,8 +2180,9 @@ paths:
                       type: integer
                     taskId:
                       type: string
-                    eventId:
-                      type: integer
+                    type:
+                      type: string
+                      enum: [ create, update-phase, update-data, finish ]
                     statusCode:
                       type: integer
                     created:
@@ -2196,7 +2197,7 @@ paths:
                     {
                       "id": 26,
                       "taskId": "nvnl01072024-c8309c",
-                      "eventId": 1,
+                      "type": "create",
                       "statusCode": 401,
                       "created": "2024-07-01 14:49:28",
                       "finished": "2024-07-01 14:49:29"
@@ -2204,7 +2205,7 @@ paths:
                     {
                       "id": 27,
                       "taskId": "nvnl01072024-76bbea",
-                      "eventId": 1,
+                      "type": "create",
                       "statusCode": 401,
                       "created": "2024-07-01 14:50:02",
                       "finished": "2024-07-01 14:50:02"
@@ -2212,7 +2213,7 @@ paths:
                     {
                       "id": 28,
                       "taskId": "nvnl01072024-4c2fd0",
-                      "eventId": 1,
+                      "type": "create",
                       "statusCode": 401,
                       "created": "2024-07-01 14:50:02",
                       "finished": "2024-07-01 14:50:02"

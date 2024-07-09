@@ -367,7 +367,7 @@ post:
               items:
                 type: object
                 properties:
-                  name:
+                  partNumber:
                     type: string
                   amount:
                     type: integer

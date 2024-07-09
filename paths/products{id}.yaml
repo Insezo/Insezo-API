@@ -1,0 +1,106 @@
+get:
+  summary: Returns product information by id
+  description: ""
+  tags:
+    - Products
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              productId:
+                type: integer
+              companyId:
+                type: integer
+              productNumber:
+                type: string
+              productGroup:
+                type: string
+              productDescription:
+                type: string
+              remark:
+                type: string
+          example:
+            {
+              "result": {
+                "productId": 10000350,
+                "companyId": 7378787652899,
+                "productNumber": "18/15",
+                "productGroup": "afzuigkap",
+                "productDescription": "Twist wandschouw",
+                "remark": ""
+              }
+            }
+put:
+  summary: Update the product with the supplied data
+  description: ""
+  tags:
+    - Products
+  parameters:
+    - name: productId
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            productDescription:
+              type: string
+            productDescriptionExtra:
+              type: string
+            productGroup:
+              type: string
+              required: true
+            productNumberExtra:
+              type: string
+            productManufacturer:
+              type: string
+            productManufacturerNumber:
+              type: string
+            productBrand:
+              type: string
+              description: call /me/affiliatebrands endpoint for brands (use id)
+            eanCode:
+              type: string
+            remark:
+              type: string
+        example:
+          { "productDescription": "wandschouw","productGroup": "afzuigkap" }
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              status:
+                type: integer
+          example:
+            {
+              "status": 201,
+              "id": "50001",
+            }
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity
+delete:
+  summary: Deletes the product
+  description: ""
+  tags:
+    - Products
+  responses:
+    '204':
+      description: No Content
+    '400':
+      description: Bad Request

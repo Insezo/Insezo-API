@@ -1,0 +1,36 @@
+get:
+  summary: Returns linked parts
+  description: ""
+  tags:
+    - Products
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                partId:
+                  type: integer
+                partNumber:
+                  type: string
+                partDescription:
+                  type: string
+          example:
+            {
+              "result": [
+                {
+                  "partId": 000123,
+                  "partNumber": "123",
+                  "partDescription": "Twist wandschouw"
+                },
+                {
+                  "partId": 000124,
+                  "partNumber": "124",
+                  "partDescription": "motor"
+                }
+              ]
+            }

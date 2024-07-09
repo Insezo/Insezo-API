@@ -75,297 +75,11 @@ paths:
   /tasks/{taskNumber}/finish:
     $ref: "./paths/tasks{id}Finish.yaml"
   /products:
-    get:
-      summary: Returns all products
-      parameters:
-        - in: query
-          name: limit
-          schema:
-            type: integer
-            maximum: 1000
-            default: 1000
-          required: false
-          description: The number of items to return
-        - in: query
-          name: page
-          schema:
-            type: integer
-          required: false
-          description: Page with the amount of returned item
-        - in: query
-          name: query
-          schema:
-            type: string
-          required: false
-          description: searches for product based on query parameter. Searches only in productNumber
-        - in: query
-          name: partnerBrand
-          schema:
-            type: integer
-          required: false
-          description: Id of brand company. Allows to fetch products as service partner for brand
-      description: ""
-      tags:
-        - Products
-      responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                  products:
-                    properties:
-                      productId:
-                        type: integer
-                      companyId:
-                        type: integer
-                      productNumber:
-                        type: string
-                      productGroup:
-                        type: string
-                      productDescription:
-                        type: string
-                      remark:
-                        type: string
-              example:
-                {
-                  "result": {
-                    "count": 2,
-                    "products": [
-                      {
-                        "productId": 10000350,
-                        "companyId": 7378787652899,
-                        "productNumber": "18/15",
-                        "productGroup": "afzuigkap",
-                        "productDescription": "Twist wandschouw",
-                        "remark": "Can't sell directly",
-
-                      },
-                      {
-                        "productId": 10000351,
-                        "companyId": 7378787652899,
-                        "productNumber": "16/15",
-                        "productGroup": "afzuigkap",
-                        "productDescription": "Salsa wandschouw",
-                        "remark": "",
-                      }
-                    ]
-                  }
-                }
-    post:
-      summary: Creates a new product with the supplied data
-      parameters:
-        - in: query
-          name: partnerBrand
-          schema:
-            type: integer
-          required: false
-          description: Id of brand company. Allows to create product as service partner for brand
-      description: ""
-      tags:
-        - Products
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                productNumber:
-                  type: string
-                productDescription:
-                  type: string
-                productDescriptionExtra:
-                  type: string
-                productGroup:
-                  type: string
-                  required: true
-                productNumberExtra:
-                  type: string
-                productManufacturer:
-                  type: string
-                productManufacturerNumber:
-                  type: string
-                productBrand:
-                  type: string
-                eanCode:
-                  type: string
-                remark:
-                  type: string
-              required:
-                - productNumber
-                - productDescription
-                - productGroup
-            example:
-              { "productNumber": "1010/5","productDescription": "wandschouw","productGroup": "afzuigkap" }
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  status:
-                    type: integer
-              example:
-                {
-                  "status": 201,
-                  "id": "50001",
-                }
-        '400':
-          description: Bad Request
-        '422':
-          description: Unprocessable Entity
+    $ref: "./paths/products.yaml"
   /products/{productId}:
-    get:
-      summary: Returns product information by id
-      description: ""
-      tags:
-        - Products
-      responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  productId:
-                    type: integer
-                  companyId:
-                    type: integer
-                  productNumber:
-                    type: string
-                  productGroup:
-                    type: string
-                  productDescription:
-                    type: string
-                  remark:
-                    type: string
-              example:
-                {
-                  "result": {
-                    "productId": 10000350,
-                    "companyId": 7378787652899,
-                    "productNumber": "18/15",
-                    "productGroup": "afzuigkap",
-                    "productDescription": "Twist wandschouw",
-                    "remark": ""
-                  }
-                }
+    $ref: "./paths/products{id}.yaml"
   /products/{productId}/parts:
-    get:
-      summary: Returns linked parts
-      description: ""
-      tags:
-        - Products
-      responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    partId:
-                      type: integer
-                    partNumber:
-                      type: string
-                    partDescription:
-                      type: string
-              example:
-                {
-                  "result": [
-                    {
-                      "partId": 000123,
-                      "partNumber": "123",
-                      "partDescription": "Twist wandschouw"
-                    },
-                    {
-                      "partId": 000124,
-                      "partNumber": "124",
-                      "partDescription": "motor"
-                    }
-                  ]
-                }
-    put:
-      summary: Update the product with the supplied data
-      description: ""
-      tags:
-        - Products
-      parameters:
-        - name: productId
-          required: true
-          in: path
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                productDescription:
-                  type: string
-                productDescriptionExtra:
-                  type: string
-                productGroup:
-                  type: string
-                  required: true
-                productNumberExtra:
-                  type: string
-                productManufacturer:
-                  type: string
-                productManufacturerNumber:
-                  type: string
-                productBrand:
-                  type: string
-                  description: call /me/affiliatebrands endpoint for brands (use id)
-                eanCode:
-                  type: string
-                remark:
-                  type: string
-            example:
-              { "productDescription": "wandschouw","productGroup": "afzuigkap" }
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  status:
-                    type: integer
-              example:
-                {
-                  "status": 201,
-                  "id": "50001",
-                }
-        '400':
-          description: Bad Request
-        '422':
-          description: Unprocessable Entity
-    delete:
-      summary: Deletes the product
-      description: ""
-      tags:
-        - Products
-      responses:
-        '204':
-          description: No Content
-        '400':
-          description: Bad Request
+    $ref: "./paths/products{id}Parts.yaml"
   /parts:
     post:
       summary: Creates a new part with the supplied data
@@ -438,6 +152,12 @@ paths:
             type: integer
           required: false
           description: Page with the amount of returned items
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: false
+          description: searches for part based on query parameter. Searches only in partNumber
       description: ""
       tags:
         - Parts
@@ -1951,44 +1671,44 @@ paths:
       tags:
         - Webhooks
       responses:
-          '200':
-            description: Ok
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      key:
-                        type: integer
-                      name:
-                        type: string
-                      type:
-                        type: string
-                        enum: [ create, update-phase, update-data, finish ]
-                      deliveryUrl:
-                        type: string
-                      creation:
-                        type: string
-                example:
-                  {
-                    "result": [
-                      {
-                        "key": 23,
-                        "name": "Inseza",
-                        "type": "update-phase",
-                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                        "creation": "2024-04-10 16:13:32"
-                      },
-                      { "key": 14,
-                        "name": "Inseba",
-                        "type": "create",
-                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                        "creation": "2024-03-11 13:40:57"
-                      }
-                    ]
-                  }
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: integer
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      enum: [ create, update-phase, update-data, finish ]
+                    deliveryUrl:
+                      type: string
+                    creation:
+                      type: string
+              example:
+                {
+                  "result": [
+                    {
+                      "key": 23,
+                      "name": "Inseza",
+                      "type": "update-phase",
+                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                      "creation": "2024-04-10 16:13:32"
+                    },
+                    { "key": 14,
+                      "name": "Inseba",
+                      "type": "create",
+                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                      "creation": "2024-03-11 13:40:57"
+                    }
+                  ]
+                }
     post:
       summary: Creates a new webhook
       description: ""
@@ -2062,41 +1782,41 @@ paths:
           schema:
             type: string
       responses:
-          '200':
-            description: Ok
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      key:
-                        type: integer
-                      name:
-                        type: string
-                      type:
-                        type: string
-                        enum: [ create, update-phase, update-data, finish ]
-                      deliveryUrl:
-                        type: string
-                      active:
-                        type: boolean
-                      creation:
-                        type: string
-                example:
-                  {
-                    "result": [
-                      {
-                        "key": 27,
-                        "name": "Inseza",
-                        "type": "finish",
-                        "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
-                        "active": 1,
-                        "creation": "2024-04-10 14:13:32"
-                      }
-                    ]
-                  }
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: integer
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      enum: [ create, update-phase, update-data, finish ]
+                    deliveryUrl:
+                      type: string
+                    active:
+                      type: boolean
+                    creation:
+                      type: string
+              example:
+                {
+                  "result": [
+                    {
+                      "key": 27,
+                      "name": "Inseza",
+                      "type": "finish",
+                      "deliveryUrl": "http:\/\/localhost\/insezo\/rest\/webhooks\/test",
+                      "active": 1,
+                      "creation": "2024-04-10 14:13:32"
+                    }
+                  ]
+                }
     put:
       summary: Updates information about the webhook
       description: ""

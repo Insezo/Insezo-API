@@ -37,6 +37,7 @@ get:
          * `brand` - the brand
          * `productGroup` - the group where the product belongs to
          * `productNumber` - number to indicate which product it is
+         * `productVersionNumber` - version number of product
          * `purchaseDate` - the date for when the product was purchased
          * `warranty` - the warranty
          * `complaint` - the customers complaint
@@ -171,6 +172,8 @@ get:
                   mobile:
                     type: string
                   productNumber:
+                    type: string
+                  productVersionNumber:
                     type: string
                   houseNumberAddition:
                     type: string
@@ -310,6 +313,8 @@ put:
               type: string
               maxLength: 20
             productNumber:
+              type: string
+            productVersionNumber:
               type: string
             purchaseDate:
               type: string

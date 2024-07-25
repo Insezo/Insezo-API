@@ -1,0 +1,96 @@
+get:
+  summary: Returns all product groups
+  parameters:
+    - in: query
+      name: query
+      schema:
+        type: string
+      required: false
+      description: searches for group based on query parameter.
+    - in: query
+      name: partnerBrand
+      schema:
+        type: integer
+      required: false
+      description: Id of brand company. Allows to fetch groups as service partner for brand
+  description: ""
+  tags:
+    - ProductGroups
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: integer
+              groups:
+                properties:
+                  id:
+                    type: integer
+                  group:
+                    type: string
+          example:
+            {
+              "result": {
+                "count": 2,
+                "groups": [
+                  {
+                    "id": 10000350,
+                    "group": "Oven",
+
+                  },
+                  {
+                    "id": 10000351,
+                    "group": "Afzuigkap",
+                  }
+                ]
+              }
+            }
+post:
+  summary: Creates a new product group with the supplied data
+  parameters:
+    - in: query
+      name: partnerBrand
+      schema:
+        type: integer
+      required: false
+      description: Id of brand company. Allows to create product group as service partner for brand
+  description: ""
+  tags:
+    - ProductGroups
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            group:
+              type: string
+          required:
+            - group
+        example:
+          { "group": "group" }
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              status:
+                type: integer
+          example:
+            {
+              "status": 201,
+              "id": "50001",
+            }
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

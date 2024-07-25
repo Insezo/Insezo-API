@@ -29,6 +29,8 @@ servers:
 tags:
   - name: Tasks
     description: Everything about tasks
+  - name: ProductGroups
+    description: Everything about product groups
   - name: Products
     description: Everything about products
   - name: Parts
@@ -74,6 +76,10 @@ paths:
     $ref: "./paths/tasks{id}Appointment.yaml"
   /tasks/{taskNumber}/finish:
     $ref: "./paths/tasks{id}Finish.yaml"
+  /productGroups:
+    $ref: "./paths/productGroups.yaml"
+  /productGroups/{groupId}:
+    $ref: "./paths/productGroups{id}.yaml"
   /products:
     $ref: "./paths/products.yaml"
   /products/{productId}:

@@ -57,7 +57,8 @@ get:
          * `relationNumber` - the phone number of the relation
          * `relationName` - the name of the relation
          * `relationEmail` - the email of the relation
-         * `repairAdvice` - advice for the repair
+         * `repairAdvice` - advice for repair
+         * `repairDescription` - description of repair
          * `repairCause` - repair code
          * `reference` - the tasks references
          * `contractor` - the intermediary contractor
@@ -135,6 +136,8 @@ get:
                   relation:
                     type: string
                   repairAdvice:
+                    type: string
+                  repairDescription:
                     type: string
                   reference:
                     type: array
@@ -236,6 +239,7 @@ get:
               "relationName": "",
               "relationEmail": "",
               "repairAdvice": "",
+              "repairdescription": "description of repair",
               "repairCause": "",
               "reference": [
                 ""
@@ -325,6 +329,9 @@ put:
             repairAdvice:
               type: string
               maxLength: 500
+            repairDescription:
+              type: string
+              maxLength: 1000
             relation:
               type: string
               format: search number

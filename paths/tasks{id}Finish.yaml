@@ -18,10 +18,14 @@ post:
             status:
               type: string
               enum: [ repair_complete,task_cancel,complete_no_parts,send_part_fix ]
+            repairDescription:
+              type: string
+            serialNumber:
+              type: string
           required:
             - status
         example:
-          { "status": "repair_complete" }
+          { "status": "repair_complete","repairDescription": "Replaced a screw" }
   responses:
     '200':
       description: Ok

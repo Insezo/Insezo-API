@@ -2,12 +2,6 @@ get:
   summary: Returns all product groups
   parameters:
     - in: query
-      name: query
-      schema:
-        type: string
-      required: false
-      description: searches for group based on query parameter.
-    - in: query
       name: partnerBrand
       schema:
         type: integer

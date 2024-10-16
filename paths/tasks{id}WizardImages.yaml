@@ -1,0 +1,40 @@
+get:
+  summary: Get wizard images
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+          example:
+            {
+              "result": [
+                {
+                  "name": "installationpicture_1_1",
+                  "url": "https://sf.insezo.com/c/04779bdb/ljoq2YrXwHz7/orders/001/0001/a4dd39/wizardimages/4YRVVVP51KF258MT.jpg"
+                },
+                {
+                  "name": "installationpicture_1_2",
+                  "url": "https://sf.insezo.com/c/04779bdb/ljoq2YrXwHz7/orders/001/0001/a4dd39/wizardimages/7GLRH2PDEWXMVZNR.jpg"
+                }
+              ]
+          }
+    '400':
+      description: Bad Request
+    '403':
+      description: Forbidden

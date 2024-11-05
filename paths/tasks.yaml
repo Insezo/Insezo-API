@@ -29,6 +29,13 @@ get:
          * `netcode` - netcode of the customer
          * `mobile` - mobile phone number of the customer
          * `email` - email of the customer
+         * `invoiceFullname` - for invoice
+         * `invoiceZipcode` - for invoice address
+         * `invoiceStreetName` - for invoice address
+         * `invoiceHouseNumber` - for invoice address
+         * `invoiceCity` - for invoice address
+         * `invoiceEmail` - for invoice
+         * `invoiceRemark` - invoice remark        
          * `brand` - the brand
          * `productGroup` - the group where the product belongs to
          * `productNumber` - number to indicate which product it is
@@ -147,6 +154,27 @@ get:
                     type: string
                   houseNumber:
                     type: string
+                  invoiceFullName:
+                    type: string
+                    maxLength: 70
+                  invoiceStreetName:
+                    type: string
+                    maxLength: 40
+                  invoiceHouseNumber:
+                    type: string
+                    maxLength: 10
+                  invoiceZipcode:
+                    type: string
+                    maxLength: 20
+                  invoiceCity:
+                    type: string
+                    maxLength: 40
+                  invoiceEmail:
+                    type: string
+                    maxLength: 60
+                  invoiceRemark:
+                    type: string
+                    maxLength: 60
                   dispatchCode:
                     type: string
                   language:
@@ -323,6 +351,27 @@ post:
             houseNumber:
               type: string
               maxLength: 10
+            invoiceFullName:
+              type: string
+              maxLength: 70
+            invoiceStreetName:
+              type: string
+              maxLength: 40
+            invoiceHouseNumber:
+              type: string
+              maxLength: 10
+            invoiceZipcode:
+              type: string
+              maxLength: 20
+            invoiceCity:
+              type: string
+              maxLength: 40
+            invoiceEmail:
+              type: string
+              maxLength: 60
+            invoiceRemark:
+              type: string
+              maxLength: 60
             email:
               type: string
               maxLength: 60

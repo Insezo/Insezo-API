@@ -70,7 +70,11 @@ get:
          * `visitPlanned` - the planned visit date
          * `customerVisited` - date and time for when the customer was visited
          * `customerVisitedCount` - how many times the customer was visited
-         * `customerBilled` - how much the customer was billed
+         * `customerBilled` - how much the customer was billed incl. VAT
+         * `customerBilledLabour` - amount billed for labour incl. VAT
+         * `customerBilledParts` - amount billed for parts incl. VAT
+         * `customerBilledFee` - amount billed for fee incl. VAT
+         * `vatRate` - applied VAT to customerBilled 21 would be 21%
          * `paymentMethod` - values : [INVOICE,CARD,CASH,INVOICE_PROXY,PAYMENT_REQUEST,NOT_APPLICABLE]
          * `additionalCosts` - additional costs
          * `technicianCompanyAssigned` - the technician company assigned to this task

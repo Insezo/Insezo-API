@@ -48,6 +48,27 @@ post:
             houseNumber:
               type: string
               maxLength: 10
+            invoiceFullName:
+              type: string
+              maxLength: 70
+            invoiceStreetName:
+              type: string
+              maxLength: 40
+            invoiceHouseNumber:
+              type: string
+              maxLength: 10
+            invoiceZipcode:
+              type: string
+              maxLength: 20
+            invoiceCity:
+              type: string
+              maxLength: 40
+            invoiceEmail:
+              type: string
+              maxLength: 60
+            invoiceRemark:
+              type: string
+              maxLength: 60
             email:
               type: string
               maxLength: 60

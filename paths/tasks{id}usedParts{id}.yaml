@@ -1,5 +1,5 @@
-post:
-  summary: Uploads a document to the task
+delete:
+  summary: Remove part used for repair from task
   description: ""
   tags:
     - Tasks
@@ -9,15 +9,12 @@ post:
       in: path
       schema:
         type: string
-  requestBody:
-    content:
-      multipart/form-data:
-        schema:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: string
+        description: "See usedParts field at GET /tasks or GET /tasks/{id}"
   responses:
     '204':
       description: No Content

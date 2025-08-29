@@ -76,6 +76,10 @@ paths:
     $ref: "./paths/tasks{id}Appointment.yaml"
   /tasks/{taskNumber}/finish:
     $ref: "./paths/tasks{id}Finish.yaml"
+  /tasks/{taskNumber}/usedParts:
+    $ref: "./paths/tasks{id}usedParts.yaml"
+  /tasks/{taskNumber}/usedParts/{id}:
+    $ref: "./paths/tasks{id}usedParts{id}.yaml"
   /tasks/{taskNumber}/wizard/images:
     $ref: "./paths/tasks{id}WizardImages.yaml"
   /tasks/{taskNumber}/communication:
@@ -844,7 +848,7 @@ paths:
                 - brand
                 - articles
             example:
-              { "salutation": 2, "firstName": "roel", "insertion": "", "lastName": "aarnoudse", "companyName": "Insezo B.V.", "country": "NL", "language": "nl", "zipcode": "3355pp", "houseNumber": "10", "streetName": "Kattestaart", "city": "papendrecht", "phone": "0786154678", "brand": 7386787652838, "store": 7384787652814, "netcode": "31", "mobile": "612345678", "email": "info@insezo.com", "reference": [ "one", "two" ], "articles": [ { "brand": 7386787652838, "article": 11277, "amount": 3 } ] }
+              { "salutation": 2, "firstName": "roel", "insertion": "", "lastName": "aarnoudse", "companyName": "Insezo B.V.", "country": "NL", "language": "nl", "zipcode": "3355pp", "houseNumber": "10", "streetName": "Kattestaart", "city": "papendrecht", "phone": "0786154678", "brand": 7386787652838, "store": 7384787652814, "netcode": "31", "mobile": "612345678", "email": "info@insezo.com", "reference": [ "one", "two" ], "articles": [ { "brand": 7386787652838, "partNumber": 11277, "amount": 3 } ] }
       responses:
         '201':
           description: Created
@@ -1550,6 +1554,31 @@ paths:
                 }
         '400':
           description: Bad Request
+  /reviews/nps:
+    get:
+      summary: Returns the net promoter score
+      description: ""
+      tags:
+        - Reviews
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    properties:
+                      nps:
+                        type: integer
+              example:
+                {
+                  "result": {
+                    "nps": 50
+                  }
+                }
   /me/partners/service:
     get:
       summary: Returns all service partners that are affiliated with a production company

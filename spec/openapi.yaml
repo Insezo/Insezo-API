@@ -36,7 +36,7 @@ paths:
       tags:
         - Tasks
       parameters:
-        - name: taskNumber
+        - name: id
           required: true
           in: path
           schema:
@@ -182,7 +182,7 @@ paths:
       tags:
         - Tasks
       parameters:
-        - name: taskNumber
+        - name: id
           required: true
           in: path
           schema:

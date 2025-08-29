@@ -1,0 +1,38 @@
+post:
+  summary: Add parts used for repair to task
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: id
+      required: true
+      in: path
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            parts:
+              type: array
+              items:
+                type: object
+                properties:
+                  partNumber:
+                    type: string
+                  amount:
+                    type: integer
+          required:
+            - parts
+        example:
+          { "parts": [ { "partNumber": "123","amount": 2 },
+                       { "partNumber": "a321","amount": 1 } ] }
+  responses:
+    '200':
+      description: Ok
+    '400':
+      description: Bad Request
+    '422':
+      description: Unprocessable Entity

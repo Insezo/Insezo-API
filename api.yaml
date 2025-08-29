@@ -78,6 +78,8 @@ paths:
     $ref: "./paths/tasks{id}Finish.yaml"
   /tasks/{taskNumber}/wizard/images:
     $ref: "./paths/tasks{id}WizardImages.yaml"
+  /tasks/{taskNumber}/communication:
+    $ref: "./paths/tasks{id}Communication.yaml"
   /productGroups:
     $ref: "./paths/productGroups.yaml"
   /productGroups/{groupId}:

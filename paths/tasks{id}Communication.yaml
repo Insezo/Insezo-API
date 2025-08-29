@@ -1,0 +1,49 @@
+get:
+  summary: Returns all the system messages from a task
+  description: ""
+  tags:
+    - Tasks
+  parameters:
+    - name: taskNumber
+      required: true
+      in: path
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              content:
+                type: string
+              created_at:
+                type: string
+          example:
+            {
+              "result": [
+                {
+                  "name": "Service operator",
+                  "content": "Monteurs bedrijf Insezo monteur gekoppeld aan order op donderdag 11-08-25 11:17 door Service operator",
+                  "created_at": "2025-08-11 11:17:37"
+                },
+                {
+                  "name": "Service operator",
+                  "content": "Order is uitgezet naar Service bedrijf Op maandag 11-08-25 09:25 door Service operator",
+                  "created_at": "2025-08-11 09:25:04"
+                },
+                {
+                  "name": "Service operator",
+                  "content": "Deze opdracht is aangemaakt door Service bedrijf op maandag 11-08-25 09:22 door Service operator",
+                  "created_at": "2025-08-11 09:22:33"
+                }
+              ]
+            }
+    '400':
+      description: Bad Request
+    '404':
+      description: Unknown resource

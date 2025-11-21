@@ -70,6 +70,8 @@ paths:
     $ref: "./paths/tasks{id}Phase.yaml"
   /tasks/{taskNumber}/document:
     $ref: "./paths/tasks{id}Document.yaml"
+  /tasks/{taskNumber}/receipt:
+    $ref: "./paths/tasks{id}Receipt.yaml"
   /tasks/{taskNumber}/technician/company:
     $ref: "./paths/tasks{id}TechnicianCompany.yaml"
   /tasks/{taskNumber}/appointment:

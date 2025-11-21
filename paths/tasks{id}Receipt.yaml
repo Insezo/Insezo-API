@@ -19,6 +19,11 @@ get:
               type: string
             createdAt:
               type: string
+        example:
+          "result": {
+            "link": "https:///sf.insezo.com/examples/receipt.pdf",
+            "createdAt": "2025-01-01 12:00:00",
+        }
   responses:
     '200':
       description: Ok

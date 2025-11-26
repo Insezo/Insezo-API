@@ -1,0 +1,9 @@
+type: object
+properties:
+  autofill:
+    type: object
+    properties:
+      secretKey:
+        type: string
+  status:
+    type: integer

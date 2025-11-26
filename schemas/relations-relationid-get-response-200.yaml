@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: integer
+  searchName:
+    type: string
+  city:
+    type: string
+  name:
+    type: string

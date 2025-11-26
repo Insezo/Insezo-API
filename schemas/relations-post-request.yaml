@@ -1,0 +1,29 @@
+type: object
+properties:
+  name:
+    type: string
+  number:
+    type: string
+  language:
+    type: string
+    description: The 2 digit country code (nl, fr)
+  country:
+    type: string
+    description: The 2 digit country code (NL, FR)
+  zipcode:
+    type: string
+  houseNumber:
+    type: string
+  streetName:
+    type: string
+  city:
+    type: string
+  phone:
+    type: string
+  email:
+    type: string
+  remark:
+    type: string
+required:
+- name
+- number

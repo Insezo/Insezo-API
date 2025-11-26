@@ -1,0 +1,19 @@
+type: array
+items:
+  type: object
+  properties:
+    key:
+      type: integer
+    name:
+      type: string
+    type:
+      type: string
+      enum:
+      - create
+      - update-phase
+      - update-data
+      - finish
+    deliveryUrl:
+      type: string
+    creation:
+      type: string

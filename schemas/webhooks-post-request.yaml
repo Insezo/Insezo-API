@@ -1,0 +1,27 @@
+type: object
+properties:
+  name:
+    type: string
+    maxLength: 40
+    description: Name must be unique
+    required: true
+  type:
+    type: string
+    enum:
+    - create
+    - update-phase
+    - update-data
+    - finish
+    required: true
+  deliveryUrl:
+    type: string
+    maxLength: 2083
+    required: true
+  secretKey:
+    type: string
+    maxLength: 32
+    required: false
+required:
+- name
+- type
+- deliveryUrl

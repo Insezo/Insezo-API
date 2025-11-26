@@ -1,0 +1,51 @@
+type: object
+properties:
+  result:
+    type: object
+    properties:
+      id:
+        type: string
+      customerName:
+        type: string
+      country:
+        type: string
+      zipcode:
+        type: string
+      streetName:
+        type: string
+      houseNumber:
+        type: string
+      houseNumberAddition:
+        type: string
+      city:
+        type: string
+      phone:
+        type: string
+      netcode:
+        type: string
+      mobile:
+        type: string
+      email:
+        type: string
+      brand:
+        type: string
+      productGroup:
+        type: string
+      productNumber:
+        type: string
+      purchaseDate:
+        type: string
+      warranty:
+        type: string
+      serialNumber:
+        type: string
+      purchasePlace:
+        type: string
+      language:
+        type: string
+      companyName:
+        type: string
+      affiliateBrand:
+        type: string
+      permission:
+        type: boolean

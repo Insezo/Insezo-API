@@ -1,0 +1,14 @@
+type: object
+properties:
+  purchasePrice:
+    type: number
+    format: currency
+  salePrice:
+    type: number
+    format: currency
+  costPrice:
+    type: number
+    format: currency
+  effectivePriceDate:
+    type: string
+    format: date

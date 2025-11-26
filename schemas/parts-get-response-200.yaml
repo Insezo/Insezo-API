@@ -1,0 +1,22 @@
+type: object
+properties:
+  count:
+    type: integer
+  parts:
+    properties:
+      partId:
+        type: integer
+      companyId:
+        type: integer
+      partNumber:
+        type: string
+      partNumberExtra:
+        type: string
+      partDescription:
+        type: string
+      purchasePrice:
+        type: number
+      salePrice:
+        type: number
+      effectivePriceDate:
+        type: string

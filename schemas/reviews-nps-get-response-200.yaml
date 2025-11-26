@@ -1,0 +1,7 @@
+type: object
+properties:
+  result:
+    type: object
+    properties:
+      nps:
+        type: integer

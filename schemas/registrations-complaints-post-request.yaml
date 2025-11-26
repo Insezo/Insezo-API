@@ -1,0 +1,78 @@
+type: object
+properties:
+  salutation:
+    type: integer
+    minimum: 1
+    maximum: 4
+    description: mr/mrs, mr, mrs, company
+  firstName:
+    type: string
+    maxLength: 35
+  insertion:
+    type: string
+    maxLength: 10
+  lastName:
+    type: string
+    maxLength: 35
+  companyName:
+    type: string
+    maxLength: 60
+  country:
+    type: string
+    minimum: 2
+    maximum: 2
+  city:
+    type: string
+    maxLength: 40
+  zipcode:
+    type: string
+    maxLength: 10
+  streetName:
+    type: string
+    maxLength: 60
+  houseNumber:
+    type: string
+    maxLength: 10
+  email:
+    type: string
+    maxLength: 60
+  mobile:
+    type: string
+    maxLength: 20
+  netcode:
+    type: string
+  phone:
+    type: string
+    maxLength: 20
+  brand:
+    type: string
+    description: call /me api for partnersbrand ID's
+  group:
+    type: string
+  number:
+    type: string
+  purchaseDate:
+    type: string
+    format: date
+  purchasePlace:
+    type: string
+    maxLength: 40
+  remark:
+    type: string
+    maxLength: 500
+  complaint:
+    type: string
+    maxLength: 1500
+  language:
+    type: string
+  affiliateBrand:
+    type: string
+    maxLength: 20
+required:
+- salutation
+- country
+- zipcode
+- brand
+- streetName
+- houseNumber
+- city

@@ -1,0 +1,21 @@
+type: object
+properties:
+  name:
+    type: string
+    maxLength: 40
+    description: Name must be unique
+  type:
+    type: string
+    enum:
+    - create
+    - update-phase
+    - update-data
+    - finish
+  deliveryUrl:
+    type: string
+    maxLength: 2083
+  active:
+    type: boolean
+  secretKey:
+    type: string
+    maxLength: 32

@@ -1,0 +1,21 @@
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: integer
+    taskId:
+      type: string
+    type:
+      type: string
+      enum:
+      - create
+      - update-phase
+      - update-data
+      - finish
+    statusCode:
+      type: integer
+    created:
+      type: string
+    finished:
+      type: string

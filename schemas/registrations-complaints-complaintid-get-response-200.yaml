@@ -1,0 +1,57 @@
+type: object
+properties:
+  result:
+    type: object
+    properties:
+      id:
+        type: string
+      lastName:
+        type: string
+      country:
+        type: string
+      purchaseDate:
+        type: string
+      city:
+        type: string
+      purchasePlace:
+        type: string
+      companyName:
+        type: string
+      houseNumber:
+        type: string
+      language:
+        type: string
+      affiliateBrand:
+        type: string
+      streetName:
+        type: string
+      netcode:
+        type: string
+      brand:
+        type: string
+      email:
+        type: string
+      serialNumber:
+        type: string
+      mobile:
+        type: string
+      number:
+        type: string
+      houseNumberAddition:
+        type: string
+      zipcode:
+        type: string
+      firstName:
+        type: string
+      phone:
+        type: string
+      group:
+        type: string
+      complaint:
+        type: string
+      remark:
+        type: string
+      insertion:
+        type: string
+      salutation:
+        type: integer

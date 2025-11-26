@@ -1,0 +1,17 @@
+type: object
+properties:
+  partNumberExtra:
+    type: string
+  partDescription:
+    type: string
+  purchasePrice:
+    type: number
+    format: currency
+  salePrice:
+    type: number
+    format: currency
+  costPrice:
+    type: number
+    format: currency
+  eanCode:
+    type: string

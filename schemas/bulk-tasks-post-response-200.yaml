@@ -1,0 +1,17 @@
+type: array
+items:
+  type: object
+  properties:
+    redirectUrl:
+      type: string
+    id:
+      type: string
+    autofill:
+      type: object
+      properties:
+        productGroup:
+          type: string
+        brand:
+          type: number
+    status:
+      type: integer

@@ -1,0 +1,17 @@
+type: object
+properties:
+  result:
+    type: object
+    properties:
+      id:
+        type: string
+      visit:
+        type: string
+      technician:
+        type: string
+      repair:
+        type: string
+      nps:
+        type: string
+      remark:
+        type: string

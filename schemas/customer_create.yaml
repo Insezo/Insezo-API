@@ -1,0 +1,43 @@
+type: object
+required:
+  - firstname
+  - lastname
+  - street
+  - houseNumber
+  - postalCode
+  - city
+  - countryAlphaCode
+  - countryNetCode
+properties:
+  firstname:
+    type: string
+  lastname:
+    type: string
+  company:
+    type: string
+    nullable: true
+  street:
+    type: string
+  houseNumber:
+    type: string
+  postalCode:
+    type: string
+  city:
+    type: string
+  countryAlphaCode:
+    type: string
+    maxLength: 2
+  countryNetCode:
+    type: integer
+  mobile:
+    type: string
+    nullable: true
+  phone:
+    type: string
+    nullable: true
+  email:
+    type: string
+    nullable: true
+  note:
+    type: string
+    nullable: true

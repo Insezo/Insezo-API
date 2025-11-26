@@ -37,6 +37,8 @@ tags:
     description: Everything about parts
   - name: Stock
     description: Everything about stock
+  - name: Customers
+    description: Everything about customers
   - name: Relations
     description: Everything about relations
   - name: Returns
@@ -382,6 +384,10 @@ paths:
     $ref: "./paths/stock.yaml"
   /stock/{stockId}:
     $ref: "./paths/stock{id}.yaml"
+  /customers:
+    $ref: "./paths/customers.yaml"
+  /customers/{customerId}:
+    $ref: "./paths/customers{id}.yaml"
   /relations:
     get:
       summary: Returns all relations

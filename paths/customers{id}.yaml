@@ -1,0 +1,20 @@
+get:
+  summary: Retrieve a customer
+  description: Retrieve customer details by ID.
+  tags:
+    - Customers
+  parameters:
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: integer
+  responses:
+    "200":
+      description: Customer details
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/customer.yaml"
+    "404":
+      description: Customer not found

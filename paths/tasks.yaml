@@ -96,6 +96,10 @@ get:
          * `productCombinations` - multiple products for task
          * `createdBy` - who the task was created by
          * `created` - when this task was created, datetime
+         * `conditionCode` - IRIS condition code
+         * `repeatCause` - the cause of a repeat task
+         * `creationMethod` - how the task was created, values : [ NORMALENTRY, EXCELENTRY, IFRAMEENTRY, TEST_CREATED, API_CALL, XML_ENTRY, BY_RELATION, SYSTEM ]
+         * `projectNumber` - the project number this task belongs to
     - in: query
       name: start
       schema:

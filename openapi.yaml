@@ -400,7 +400,7 @@ paths:
           description: Unprocessable Entity
   /carry-in:
     post:
-      summary: Creates a new return task with the supplied data
+      summary: Creates a new carry-in with the supplied data
       description: ''
       tags:
       - Carry-in

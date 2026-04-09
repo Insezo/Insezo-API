@@ -6,6 +6,11 @@ items:
       type: integer
     name:
       type: string
+    resource:
+      type: string
+      enum:
+        - task
+        - carry-in
     type:
       type: string
       enum:

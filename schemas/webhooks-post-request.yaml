@@ -5,6 +5,11 @@ properties:
     maxLength: 40
     description: Name must be unique
     required: true
+  resource:
+    type: string
+    enum:
+      - task
+      - carry-in
   type:
     type: string
     enum:

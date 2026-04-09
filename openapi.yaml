@@ -908,7 +908,7 @@ paths:
               example:
                 status: 201
                 autofill:
-                  secreKey: JFhndfud7rfgGYUs8790wdfJkdfI8054
+                  secretKey: JFhndfud7rfgGYUs8790wdfJkdfI8054
         '400':
           description: Bad Request
         '422':

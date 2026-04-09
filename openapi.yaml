@@ -876,11 +876,13 @@ paths:
                 result:
                 - key: 23
                   name: Inseza
+                  resource: task
                   type: update-phase
                   deliveryUrl: http://localhost/insezo/rest/webhooks/test
                   creation: '2024-04-10 16:13:32'
                 - key: 14
                   name: Inseba
+                  resource: carry-in
                   type: create
                   deliveryUrl: http://localhost/insezo/rest/webhooks/test
                   creation: '2024-03-11 13:40:57'

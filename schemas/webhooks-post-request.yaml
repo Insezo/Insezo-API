@@ -28,5 +28,6 @@ properties:
     required: false
 required:
 - name
+- resource
 - type
 - deliveryUrl

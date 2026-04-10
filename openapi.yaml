@@ -450,6 +450,46 @@ paths:
           description: Bad Request
         '422':
           description: Unprocessable Entity
+    get:
+      summary: Returns a list of carry-ins
+      description: Retrieves a collection of carry-in records.
+      tags:
+        - Carry-in
+      responses:
+        '200':
+          description: A list of carry-ins
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/carry-in-get-response.yaml'
+        '401':
+          description: Unauthorized
+  /carry-in/{carryInId}:
+    get:
+      summary: Get carry-in details by ID
+      description: Returns the full details of a specific carry-in record.
+      tags:
+        - Carry-in
+      parameters:
+        - name: carryInId
+          in: path
+          description: The unique identifier of the carry-in (e.g., rsinse21112019-5ff1a5)
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/carry-in-get-response.yaml'
+        '404':
+          description: Carry-in not found
+        '401':
+          description: Unauthorized
   /fulfilment:
     post:
       summary: Creates a new fulfilment task with the supplied data

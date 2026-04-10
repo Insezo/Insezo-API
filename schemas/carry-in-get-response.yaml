@@ -1,0 +1,89 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The unique identifier (Retour number)
+    example: "rsinse21112019-5ff1a5"
+  status:
+    type: string
+    description: The current status of the carry-in
+    example: "received"
+  created:
+    type: string
+    format: date-time
+    description: The creation timestamp
+  returnType:
+    type: string
+    enum: [sda, mda, sdar, mdar, sdad, mdad]
+  salutation:
+    type: integer
+    description: "1: mr/mrs, 2: mr, 3: mrs, 4: company"
+  firstName:
+    type: string
+  insertion:
+    type: string
+  lastName:
+    type: string
+  customerName:
+    type: string
+    description: The full concatenated name
+  companyName:
+    type: string
+  country:
+    type: string
+    example: "nl"
+  city:
+    type: string
+  zipcode:
+    type: string
+  streetName:
+    type: string
+  houseNumber:
+    type: string
+  houseNumberAddition:
+    type: string
+  email:
+    type: string
+  mobile:
+    type: string
+  netcode:
+    type: string
+  phone:
+    type: string
+  language:
+    type: string
+    example: "nl"
+  brand:
+    type: string
+    description: The main product brand name
+  affiliateBrand:
+    type: string
+    description: The extra/affiliate brand name
+  productGroup:
+    type: string
+  productNumber:
+    type: string
+  serialNumber:
+    type: string
+  purchaseDate:
+    type: string
+    format: date
+  purchasePlace:
+    type: string
+  warranty:
+    type: integer
+  complaint:
+    type: string
+  repairAdvice:
+    type: string
+  estMaintenanceCode:
+    type: string
+    example: "M1101"
+  reference:
+    type: array
+    items:
+      type: string
+  relationName:
+    type: string
+  relationEmail:
+    type: string

@@ -1,0 +1,21 @@
+post:
+  summary: Sends the ordered parts of a shipment to their recipient
+  description: >
+    Marks every part still pending on the shipment as sent and moves the
+    corresponding stock.
+  tags:
+    - Orders
+  parameters:
+    - name: shipmentNumber
+      required: true
+      in: path
+      description: The freight/shipment number of the order
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Ok
+    '400':
+      description: Bad Request
+    '401':
+      description: Unauthorized

@@ -26,6 +26,8 @@ tags:
   description: Everything about parts
 - name: Stock
   description: Everything about stock
+- name: Orders
+  description: Everything about orders
 - name: Customers
   description: Everything about customers
 - name: Relations
@@ -260,6 +262,8 @@ paths:
           description: Bad Request
         '422':
           description: Unprocessable Entity
+  /orders/{shipmentNumber}/send:
+    $ref: ./paths/orders{id}Send.yaml
   /stock:
     $ref: ./paths/stock.yaml
   /stock/{stockId}:

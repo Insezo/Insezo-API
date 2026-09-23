@@ -16,22 +16,71 @@ post:
           type: object
           properties:
             identifier:
-              type: integer
-              description: ID of technician company
+              type: string
+              description: ID of the technician company assigned to the task
             communication:
               type: boolean
-              description: Send communication to technician company
+              description: Mail the technician company that the task was taken away 
             keepAppointment:
               type: boolean
-              description: If a appointment already has been made keep the data
+              description: If an appointment already has been made keep the planned visit dates on the task
           required:
             - identifier
         example:
-          { "identifier": 0123456789,"communication": true,"keepAppointment": false }
+          { "identifier": "7866667252698","communication": true,"keepAppointment": false }
   responses:
     '200':
       description: Ok
-    '400':
-      description: Bad Request
+      content:
+        application/json:
+          example:
+            result:
+              {
+                "success": true
+              }
+    '401':
+      description: Unauthorized
+    '403':
+      description: The company may not view this task
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/error-response.yaml
+          example:
+            error:
+              error_code: FORBIDDEN
+              message: No access to this task
+    '404':
+      description: Task not found
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/error-response.yaml
+          example:
+            error:
+              error_code: UNKNOWN_RESOURCE
+              message: Task number 'itnl01012026-000000' does not exist
     '422':
-      description: Unprocessable Entity
+      description: >
+        `INVALID_ACTION` when the task is finished or has no technician company,
+        `INSUFFICIENT_PERMISSIONS` when the caller is not the contractor,
+        `INVALID_PARAMETER_TYPE` when `identifier` is not the assigned technician company,
+        `MISSING_JSON_FIELD` when `identifier` is missing.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/error-response.yaml
+          example:
+            error:
+              error_code: INVALID_PARAMETER_TYPE
+              message: identifier '1234567890' is not the technician company assigned to this task
+    '500':
+      description: The task could not be updated
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/error-response.yaml
+          example:
+            error:
+              error_code: RESOURCE_NOT_UPDATED
+              message: Technician company could not be unassigned

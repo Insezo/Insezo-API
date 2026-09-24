@@ -67,6 +67,10 @@ paths:
     $ref: ./paths/tasks{id}Receipt.yaml
   /tasks/{taskNumber}/technician/company:
     $ref: ./paths/tasks{id}TechnicianCompany.yaml
+  /tasks/{taskNumber}/technician/company/unassign:
+    $ref: ./paths/tasks{id}TechnicianCompanyUnassign.yaml
+  /tasks/{taskNumber}/technician/unassign:
+    $ref: ./paths/tasks{id}TechnicianUnassign.yaml
   /tasks/{taskNumber}/appointment:
     $ref: ./paths/tasks{id}Appointment.yaml
   /tasks/{taskNumber}/finish:

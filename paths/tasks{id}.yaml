@@ -71,6 +71,8 @@ get:
          * `contractor` - the intermediary contractor
          * `contractorAssigned` - the assigned contractor
          * `technicianCompany` - the intermediary technician company
+         * `technician` - the full name of the individual technician
+         * `technicianIdentifier` - the identifier of the individual technician, used by `POST /tasks/{taskNumber}/technician/unassign`
          * `confirmed` - the date of when the task was confirmed
          * `visitPlanned` - the planned visit date
          * `customerVisited` - date and time for when the customer was visited

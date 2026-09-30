@@ -74,13 +74,3 @@ post:
             error:
               error_code: INVALID_PARAMETER_TYPE
               message: identifier '1234567890' is not the technician company assigned to this task
-    '500':
-      description: The task could not be updated
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/error-response.yaml
-          example:
-            error:
-              error_code: RESOURCE_NOT_UPDATED
-              message: Technician company could not be unassigned

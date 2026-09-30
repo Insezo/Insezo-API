@@ -64,13 +64,3 @@ post:
             error:
               error_code: INVALID_ACTION
               message: Task has no planned visit
-    '500':
-      description: The task could not be updated
-      content:
-        application/json:
-          schema:
-            $ref: ../schemas/error-response.yaml
-          example:
-            error:
-              error_code: RESOURCE_NOT_UPDATED
-              message: Appointment could not be cancelled

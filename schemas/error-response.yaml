@@ -1,0 +1,19 @@
+type: object
+properties:
+  error:
+    type: object
+    properties:
+      error_code:
+        type: string
+        description: JSON response error codes
+        enum:
+          - UNKNOWN_RESOURCE
+          - FORBIDDEN
+          - INSUFFICIENT_PERMISSIONS
+          - INVALID_ACTION
+          - INVALID_PARAMETER_TYPE
+          - MISSING_JSON_FIELD
+          - RESOURCE_NOT_UPDATED
+      message:
+        type: string
+        description: Human readable explanation

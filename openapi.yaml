@@ -69,6 +69,8 @@ paths:
     $ref: ./paths/tasks{id}TechnicianCompany.yaml
   /tasks/{taskNumber}/appointment:
     $ref: ./paths/tasks{id}Appointment.yaml
+  /tasks/{taskNumber}/appointment/cancel:
+    $ref: ./paths/tasks{id}AppointmentCancel.yaml
   /tasks/{taskNumber}/finish:
     $ref: ./paths/tasks{id}Finish.yaml
   /tasks/{taskNumber}/usedParts:

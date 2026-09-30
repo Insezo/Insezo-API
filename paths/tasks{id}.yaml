@@ -53,6 +53,8 @@ get:
          * `language` - follow ISO 3166-1 alpha-2 (e.g : nl, de, be, gb)
          * `companyName` - the name of the company
          * `affiliateBrand` - the brand affiliated
+         * `conditionCode` - condition code
+         * `conditionCodeDesc` - condition code description
          * `estMaintenanceCode` - estimated maintenance code
          * `estMaintenanceCodeDesc` - estimated maintenance code description
          * `realMaintenanceCode` - the real maintenance codee

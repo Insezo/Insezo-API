@@ -5,7 +5,7 @@ properties:
     properties:
       error_code:
         type: string
-        description: Machine readable error code
+        description: JSON response error codes
         enum:
           - UNKNOWN_RESOURCE
           - FORBIDDEN

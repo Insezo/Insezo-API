@@ -1,8 +1,9 @@
 post:
   summary: Sends the ordered parts of a shipment to their recipient
   description: >
-    Marks every part still pending on the shipment as sent and moves the
-    corresponding stock.
+    Marks the parts still pending on the shipment as sent and moves the
+    corresponding stock. Without a body every pending part is sent, pass
+    parts to only send those, the rest stays pending for a later call.
   tags:
     - Orders
   parameters:
@@ -12,6 +13,22 @@ post:
       description: The freight/shipment number of the order
       schema:
         type: string
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            parts:
+              type: array
+              description: Part numbers to send. Every listed part must be pending on the shipment.
+              items:
+                type: string
+          required:
+            - parts
+        example:
+          { "parts": [ "10700900005" ] }
   responses:
     '200':
       description: Ok

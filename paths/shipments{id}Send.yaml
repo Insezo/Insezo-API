@@ -6,7 +6,7 @@ post:
     oldest lines are filled first. Any quantity not sent stays pending on the
     same shipment number and can be sent with a later call. Parts that are not
     listed stay pending. Quantities that can't be sent (part not pending, or
-    more requested than pending) are listed under not_sent; the rest of the
+    more requested than pending) are listed under notSent; the rest of the
     request is still processed.
   tags:
     - Shipments
@@ -111,7 +111,7 @@ post:
                           type: string
                         remaining:
                           type: integer
-                  not_sent:
+                  notSent:
                     type: array
                     description: Requested quantities that could not be sent.
                     items:
@@ -135,7 +135,7 @@ post:
                 "sent": [],
                 "partial": [ { "partNumber": "12345678905", "quantity": 4, "remaining": 1 } ],
                 "unshipped": [ { "partNumber": "12345678906", "remaining": 2 } ],
-                "not_sent": [ { "partNumber": "12345678907", "quantity": 1, "reason": "not pending" } ]
+                "notSent": [ { "partNumber": "12345678907", "quantity": 1, "reason": "not pending" } ]
               }
             }
     '400':

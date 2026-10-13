@@ -1,0 +1,146 @@
+post:
+  summary: Sends parts of a shipment by part number and quantity
+  description: >
+    Marks the given quantity per part number as sent and moves the
+    corresponding stock. When a part number spans several order lines, the
+    oldest lines are filled first. Any quantity not sent stays pending on the
+    same shipment number and can be sent with a later call. Parts that are not
+    listed stay pending. Quantities that can't be sent (part not pending, or
+    more requested than pending) are listed under not_sent; the rest of the
+    request is still processed.
+  tags:
+    - Shipments
+  parameters:
+    - name: shipmentNumber
+      required: true
+      in: path
+      description: The freight/shipment number of the order
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            operationId:
+              type: string
+              format: uuid
+              description: >
+                Unique per send. Retrying with the same operationId and body
+                returns the original result without sending again. Reusing it
+                with a different body returns 409. Generate it once when the
+                shipment is marked as sent on your side, store it with that
+                record, and reuse it on every retry. A new operationId per
+                attempt turns each retry into a new send.
+            parts:
+              type: array
+              items:
+                type: object
+                properties:
+                  partNumber:
+                    type: string
+                  quantity:
+                    type: integer
+                    minimum: 1
+                required:
+                  - partNumber
+                  - quantity
+          required:
+            - operationId
+            - parts
+        example:
+          { "operationId": "01234560-0000-7000-8000-00000000000a", "parts": [ { "partNumber": "12345678905", "quantity": 4 } ] }
+  responses:
+    '200':
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+                properties:
+                  shipmentNumber:
+                    type: string
+                  sentLines:
+                    type: array
+                    description: Every order line that was sent in this call.
+                    items:
+                      type: object
+                      properties:
+                        taskNumber:
+                          type: string
+                        partNumber:
+                          type: string
+                        partName:
+                          type: string
+                        quantity:
+                          type: integer
+                  sent:
+                    type: array
+                    description: Requested parts that now have nothing left pending on the shipment.
+                    items:
+                      type: object
+                      properties:
+                        partNumber:
+                          type: string
+                        quantity:
+                          type: integer
+                  partial:
+                    type: array
+                    description: Requested parts that still have a quantity pending after this call.
+                    items:
+                      type: object
+                      properties:
+                        partNumber:
+                          type: string
+                        quantity:
+                          type: integer
+                        remaining:
+                          type: integer
+                  unshipped:
+                    type: array
+                    description: Parts on the shipment that were not in the request and are still pending.
+                    items:
+                      type: object
+                      properties:
+                        partNumber:
+                          type: string
+                        remaining:
+                          type: integer
+                  not_sent:
+                    type: array
+                    description: Requested quantities that could not be sent.
+                    items:
+                      type: object
+                      properties:
+                        partNumber:
+                          type: string
+                        quantity:
+                          type: integer
+                        reason:
+                          type: string
+                          enum: [ not pending, exceeds pending quantity ]
+          example:
+            {
+              "result": {
+                "shipmentNumber": "ship12345678abcd",
+                "sentLines": [
+                  { "taskNumber": "ptnl07082026-abcd0a", "partNumber": "12345678905", "partName": "Part Name 1", "quantity": 3 },
+                  { "taskNumber": "ptnl07082026-abcd0a", "partNumber": "12345678905", "partName": "Part Name 1", "quantity": 1 }
+                ],
+                "sent": [],
+                "partial": [ { "partNumber": "12345678905", "quantity": 4, "remaining": 1 } ],
+                "unshipped": [ { "partNumber": "12345678906", "remaining": 2 } ],
+                "not_sent": [ { "partNumber": "12345678907", "quantity": 1, "reason": "not pending" } ]
+              }
+            }
+    '400':
+      description: Bad Request
+    '401':
+      description: Unauthorized
+    '409':
+      description: Conflict

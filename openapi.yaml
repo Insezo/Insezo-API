@@ -28,6 +28,8 @@ tags:
   description: Everything about stock
 - name: Orders
   description: Everything about orders
+- name: Shipments
+  description: Everything about shipments
 - name: Customers
   description: Everything about customers
 - name: Relations
@@ -264,6 +266,8 @@ paths:
           description: Unprocessable Entity
   /orders/{shipmentNumber}/send:
     $ref: ./paths/orders{id}Send.yaml
+  /shipments/{shipmentNumber}/send:
+    $ref: ./paths/shipments{id}Send.yaml
   /stock:
     $ref: ./paths/stock.yaml
   /stock/{stockId}:
